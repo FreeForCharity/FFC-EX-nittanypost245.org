@@ -110,10 +110,10 @@ const index = () => {
               <br />
               Email:{' '}
               <a
-                href="mailto:info@post245.com"
+                href="mailto:info@nittanypost245.org"
                 className="text-[#002D62] underline hover:text-[#BF0D3E]"
               >
-                info@post245.com
+                info@nittanypost245.org
               </a>
               <br />
               <br />

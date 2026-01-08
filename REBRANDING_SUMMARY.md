@@ -12,7 +12,7 @@ This document summarizes the rebranding of the Free For Charity template to Nitt
 - **Nickname**: "The Legion in the Woods"
 - **Location**: 1950 Pine Hall Road, State College, PA 16801
 - **Phone**: (814) 237-6880
-- **Email**: info@post245.com
+- **Email**: info@nittanypost245.org
 - **Website**: https://nittanypost245.org/
 
 ### History
