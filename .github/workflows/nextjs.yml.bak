@@ -81,10 +81,6 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-        env:
-          # Set basePath for GitHub Pages deployment
-          # This ensures images and assets work correctly at the subpath
-          NEXT_PUBLIC_BASE_PATH: /FFC_Single_Page_Template
       - name: Run E2E tests
         run: npm run test:e2e
         env:

@@ -1,8 +1,8 @@
 # Facebook Events Integration - Setup Guide
 
-**Last Updated:** December 9, 2024
+**Last Updated:** January 8, 2026
 
-This guide provides step-by-step instructions for implementing the Facebook Events integration on the Free For Charity homepage. Follow this guide after reviewing `FACEBOOK_EVENTS_REQUIREMENTS.md`.
+This guide provides step-by-step instructions for implementing a Facebook Events integration on the site. Follow this guide after reviewing `FACEBOOK_EVENTS_REQUIREMENTS.md`.
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@ Before starting implementation, ensure you have:
 - [x] Confirmed Free For Charity Facebook page URL: `https://www.facebook.com/freeforcharity`
 - [x] Verified Facebook page has upcoming events posted
 - [x] Development environment set up (Node.js 20.x, npm)
-- [x] Access to repository: `FreeForCharity/FFC_Single_Page_Template`
+- [x] Access to repository: `FreeForCharity/FFC-EX-nittanypost245.org`
 - [x] Reviewed existing cookie consent implementation in `src/components/cookie-consent/index.tsx`
 
 ## Phase 1: Facebook Page Plugin Implementation
@@ -553,7 +553,7 @@ These steps must be completed **outside the codebase** before implementation:
 #### 2. Create Facebook App
 
 1. **Choose App Type:** Select "Business"
-2. **App Name:** "Free For Charity Events Integration"
+2. **App Name:** "Nittany Post 245 Events Integration"
 3. **App Contact Email:** Use privacy@freeforcharity.org or clarkemoyer@freeforcharity.org
 4. **Business Account:** Select or create Free For Charity business account
 5. Click "Create App"
@@ -563,9 +563,9 @@ These steps must be completed **outside the codebase** before implementation:
 1. Go to App Dashboard
 2. Navigate to **Settings > Basic**
 3. Note your **App ID** and **App Secret** (keep these secure)
-4. Add **App Domains:** `ffcworkingsite1.org`, `freeforcharity.github.io`
-5. Add **Privacy Policy URL:** `https://ffcworkingsite1.org/privacy-policy`
-6. Add **Terms of Service URL:** `https://ffcworkingsite1.org/terms-of-service`
+4. Add **App Domains:** `nittanypost245.org`
+5. Add **Privacy Policy URL:** `https://nittanypost245.org/privacy-policy`
+6. Add **Terms of Service URL:** `https://nittanypost245.org/terms-of-service`
 7. Save changes
 
 #### 4. Get Page Access Token
@@ -1009,7 +1009,7 @@ The GitHub Actions workflow will:
 
 ### Verify Deployment
 
-1. Visit https://ffcworkingsite1.org
+1. Visit https://nittanypost245.org
 2. Scroll to Events section
 3. Test cookie consent flow
 4. Verify events load correctly
@@ -1124,8 +1124,7 @@ Set up monitoring for:
 
 **Technical Issues:**
 
-- Repository: https://github.com/FreeForCharity/FFC_Single_Page_Template/issues
-- Email: clarkemoyer@freeforcharity.org
+- Repository: https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/issues
 
 **Facebook Developer Support:**
 

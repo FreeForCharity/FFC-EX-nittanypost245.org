@@ -42,10 +42,6 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          static_site_generator: next
 
       - name: Restore Next.js cache
         uses: actions/cache@v4
@@ -63,10 +59,6 @@ jobs:
 
       - name: Build with Next.js
         run: npm run build
-        env:
-          # Set basePath for GitHub Pages deployment
-          # This ensures images and assets work correctly at the subpath
-          NEXT_PUBLIC_BASE_PATH: /FFC_Single_Page_Template
 
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v4

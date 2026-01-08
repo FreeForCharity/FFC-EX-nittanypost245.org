@@ -1,15 +1,20 @@
 /**
- * Helper function to construct asset paths that work with GitHub Pages basePath
+ * Helper function to construct asset paths that work with an optional basePath.
  *
- * When deployed to GitHub Pages at freeforcharity.github.io/FFC_Single_Page_Template/,
- * all assets need to be prefixed with the repository name.
- *
- * For the custom domain (ffcworkingsite1.org), no basePath is needed.
+ * Production is deployed via GitHub Pages using the custom apex domain
+ * `https://nittanypost245.org/`, so `NEXT_PUBLIC_BASE_PATH` is expected to be empty.
  *
  * @param path - The asset path starting with /
  * @returns The full asset path including basePath if configured
  */
 export function assetPath(path: string): string {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
-  return `${basePath}${path}`
+  const rawBasePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').trim()
+  const normalizedBasePath =
+    rawBasePath === '/' || rawBasePath === '/FFC_Single_Page_Template'
+      ? ''
+      : rawBasePath.replace(/\/+$/, '')
+
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+
+  return `${normalizedBasePath}${normalizedPath}`
 }

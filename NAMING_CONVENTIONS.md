@@ -45,16 +45,12 @@ Kebab-case is the industry standard for SEO-friendly URLs and is explicitly reco
 
 **User Experience:**
 
-- Kebab-case URLs are easier for humans to read and remember
-- Clear word separation improves comprehension
-- Professional appearance
-
 **Examples:**
 
-```
-✅ Good: https://ffcworkingsite1.org/cookie-policy
-❌ Bad:  https://ffcworkingsite1.org/CookiePolicy
-❌ Bad:  https://ffcworkingsite1.org/cookiepolicy
+✅ Good: https://nittanypost245.org/cookie-policy
+❌ Bad: https://nittanypost245.org/CookiePolicy
+❌ Bad: https://nittanypost245.org/cookiepolicy
+
 ```
 
 ### 3. Industry Standards
@@ -95,12 +91,14 @@ Kebab-case is the industry standard for SEO-friendly URLs and is explicitly reco
 All component folders must use kebab-case:
 
 ```
+
 src/components/
-├── header/              ✅ Correct
-├── footer/              ✅ Correct
-├── cookie-consent/      ✅ Correct
-├── google-tag-manager/  ✅ Correct
-└── home-page/          ✅ Correct
+├── header/ ✅ Correct
+├── footer/ ✅ Correct
+├── cookie-consent/ ✅ Correct
+├── google-tag-manager/ ✅ Correct
+└── home-page/ ✅ Correct
+
 ```
 
 ### App Routes Folder (`src/app/`)
@@ -108,11 +106,13 @@ src/components/
 All route folders must use kebab-case (this directly impacts URL structure):
 
 ```
+
 src/app/
-├── cookie-policy/       → https://example.com/cookie-policy ✅
-├── privacy-policy/      → https://example.com/privacy-policy ✅
-├── terms-of-service/    → https://example.com/terms-of-service ✅
-└── home-page/          → Used for components, not routes
+├── cookie-policy/ → https://example.com/cookie-policy ✅
+├── privacy-policy/ → https://example.com/privacy-policy ✅
+├── terms-of-service/ → https://example.com/terms-of-service ✅
+└── home-page/ → Used for components, not routes
+
 ```
 
 ## Historical Context
@@ -166,3 +166,4 @@ If you're unsure about naming a new folder or file:
 4. Keep names descriptive but concise
 
 Example: "Free Charity Web Hosting" → `free-charity-web-hosting`
+```

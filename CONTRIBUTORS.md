@@ -91,7 +91,7 @@ We value all types of contributions, including but not limited to:
 
 ## Contribution Statistics
 
-_Last updated: December 13, 2025_
+_Last updated: January 8, 2026_
 
 - **Total Contributors**: See GitHub Insights
 - **Total Commits**: See GitHub Insights
@@ -99,7 +99,7 @@ _Last updated: December 13, 2025_
 - **Pull Requests**: See GitHub Insights
 - **Issues Closed**: See GitHub Insights
 
-_Note: For current statistics, visit the repository's [Insights tab](https://github.com/FreeForCharity/FFC_Single_Page_Template/pulse) or [Contributors page](https://github.com/FreeForCharity/FFC_Single_Page_Template/graphs/contributors) on GitHub._
+_Note: For current statistics, visit the repository's [Insights tab](https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/pulse) or [Contributors page](https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/graphs/contributors) on GitHub._
 
 ## Recognition Guidelines
 
@@ -203,8 +203,7 @@ All contributors are expected to:
 
 If you have questions about contributor recognition:
 
-- **Email**: clarkemoyer@freeforcharity.org
-- **GitHub Discussions**: [Ask a question](https://github.com/FreeForCharity/FFC_Single_Page_Template/discussions)
+- **GitHub Discussions**: [Ask a question](https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/discussions)
 - **Support Guide**: [SUPPORT.md](./SUPPORT.md)
 
 ## Updates to This Document

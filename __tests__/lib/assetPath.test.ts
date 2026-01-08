@@ -22,18 +22,33 @@ describe('assetPath utility', () => {
     expect(assetPath('/logo.png')).toBe('/logo.png')
   })
 
+  it("should treat '/' basePath as empty", () => {
+    process.env.NEXT_PUBLIC_BASE_PATH = '/'
+    expect(assetPath('/logo.png')).toBe('/logo.png')
+  })
+
   it('should prepend basePath when NEXT_PUBLIC_BASE_PATH is set', () => {
-    process.env.NEXT_PUBLIC_BASE_PATH = '/FFC_Single_Page_Template'
-    expect(assetPath('/logo.png')).toBe('/FFC_Single_Page_Template/logo.png')
+    process.env.NEXT_PUBLIC_BASE_PATH = '/some-base-path'
+    expect(assetPath('/logo.png')).toBe('/some-base-path/logo.png')
+  })
+
+  it('should trim trailing slashes from basePath', () => {
+    process.env.NEXT_PUBLIC_BASE_PATH = '/some-base-path/'
+    expect(assetPath('/logo.png')).toBe('/some-base-path/logo.png')
+  })
+
+  it('should normalize asset paths missing a leading slash', () => {
+    process.env.NEXT_PUBLIC_BASE_PATH = '/some-base-path'
+    expect(assetPath('logo.png')).toBe('/some-base-path/logo.png')
   })
 
   it('should handle paths with subdirectories', () => {
-    process.env.NEXT_PUBLIC_BASE_PATH = '/FFC_Single_Page_Template'
-    expect(assetPath('/images/hero.jpg')).toBe('/FFC_Single_Page_Template/images/hero.jpg')
+    process.env.NEXT_PUBLIC_BASE_PATH = '/some-base-path'
+    expect(assetPath('/images/hero.jpg')).toBe('/some-base-path/images/hero.jpg')
   })
 
   it('should handle root path', () => {
-    process.env.NEXT_PUBLIC_BASE_PATH = '/FFC_Single_Page_Template'
-    expect(assetPath('/')).toBe('/FFC_Single_Page_Template/')
+    process.env.NEXT_PUBLIC_BASE_PATH = '/some-base-path'
+    expect(assetPath('/')).toBe('/some-base-path/')
   })
 })

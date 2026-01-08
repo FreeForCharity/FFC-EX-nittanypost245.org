@@ -1,5 +1,11 @@
 import type { NextConfig } from 'next'
 
+const rawBasePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').trim()
+const normalizedBasePath =
+  rawBasePath === '/' || rawBasePath === '/FFC_Single_Page_Template'
+    ? ''
+    : rawBasePath.replace(/\/+$/, '')
+
 const nextConfig: NextConfig = {
   output: 'export',
   // Images configuration
@@ -10,15 +16,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'ffcworkingsite1.org',
+        hostname: 'nittanypost245.org',
       },
       {
         protocol: 'https',
-        hostname: 'staging.freeforcharity.org',
-      },
-      {
-        protocol: 'https',
-        hostname: 'freeforcharity.org',
+        hostname: 'www.nittanypost245.org',
       },
       {
         protocol: 'https',
@@ -27,8 +29,8 @@ const nextConfig: NextConfig = {
     ],
   },
   // Optional: base path and asset prefix if using a subdirectory deployment
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
-  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  basePath: normalizedBasePath,
+  assetPrefix: normalizedBasePath,
 }
 
 export default nextConfig

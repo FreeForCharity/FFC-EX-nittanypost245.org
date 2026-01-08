@@ -19,7 +19,7 @@ import {
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://legioninthewoods.org'),
+  metadataBase: new URL('https://nittanypost245.org'),
   title: {
     default: 'Nittany American Legion Post 245 | Legion in the Woods',
     template: '%s | American Legion Post 245',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://legioninthewoods.org/',
+    url: 'https://nittanypost245.org/',
     siteName: 'American Legion Post 245',
     title: 'Nittany American Legion Post 245 | Legion in the Woods',
     description:

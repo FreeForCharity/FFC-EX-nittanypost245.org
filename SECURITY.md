@@ -203,7 +203,7 @@ The repository uses automated quality checks to ensure code quality and security
   - Code formatting check (Prettier)
   - Linting (ESLint)
   - Unit tests (Jest)
-  - Static site build with proper basePath configuration
+  - Static site build (domain root)
   - End-to-end tests (Playwright)
 - Must pass before merging
 
@@ -230,7 +230,7 @@ The repository uses automated quality checks to ensure code quality and security
 - Steps include:
   - Node.js 20 environment setup
   - Clean dependency installation (`npm ci`)
-  - Next.js static site build with basePath for GitHub Pages
+  - Next.js static site build (domain root)
   - Static site artifact upload
   - Deployment to GitHub Pages from `./out` directory
 - Deployment is skipped if CI workflow fails or is cancelled
@@ -283,8 +283,7 @@ If you discover a security vulnerability in this repository:
 
 1. **Do NOT open a public issue** - this could put the live site at risk
 2. **Report privately** using one of these methods:
-   - **Preferred**: Use GitHub's [Security Advisories feature](https://github.com/FreeForCharity/FFC_Single_Page_Template/security/advisories/new)
-   - **Alternative**: Email clarkemoyer@freeforcharity.org with subject line "Security Vulnerability Report"
+   - **Preferred**: Use GitHub's [Security Advisories feature](https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/security/advisories/new)
 3. Include as much detail as possible:
    - Description of the vulnerability
    - Steps to reproduce
