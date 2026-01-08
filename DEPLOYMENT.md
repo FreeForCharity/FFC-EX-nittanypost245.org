@@ -111,7 +111,7 @@ The actual steps performed by the deploy workflow are:
 
 ```yaml
 env:
-   NEXT_PUBLIC_BASE_PATH: /FFC-EX-nittanypost245.org
+  NEXT_PUBLIC_BASE_PATH: /FFC-EX-nittanypost245.org
 ```
 
 This ensures images and assets work correctly at the GitHub Pages subpath.
