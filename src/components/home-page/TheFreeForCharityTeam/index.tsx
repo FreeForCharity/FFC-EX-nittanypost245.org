@@ -1,5 +1,6 @@
 import React from 'react'
 import TeamMemberCard from '@/components/ui/TeamMemberCard'
+import { assetPath } from '@/lib/assetPath'
 
 const PostLeadership = () => {
   return (
@@ -14,19 +15,19 @@ const PostLeadership = () => {
       <div className="w-[90%] mx-auto py-[40px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  items-stretch justify-center mb-[50px] gap-[30px]">
           <TeamMemberCard
-            imageUrl="/american-legion-emblem.png"
+            imageUrl={assetPath('/american-legion-emblem.png')}
             name="Post Commander"
             title="Placeholder - Add Commander Name & Photo"
             linkedinUrl="#"
           />
           <TeamMemberCard
-            imageUrl="/american-legion-emblem.png"
+            imageUrl={assetPath('/american-legion-emblem.png')}
             name="First Vice Commander"
             title="Placeholder - Add 1st Vice Commander Name & Photo"
             linkedinUrl="#"
           />
           <TeamMemberCard
-            imageUrl="/american-legion-emblem.png"
+            imageUrl={assetPath('/american-legion-emblem.png')}
             name="Second Vice Commander"
             title="Placeholder - Add 2nd Vice Commander Name & Photo"
             linkedinUrl="#"
@@ -34,13 +35,13 @@ const PostLeadership = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center mt-[40px] gap-[30px]">
           <TeamMemberCard
-            imageUrl="/american-legion-emblem.png"
+            imageUrl={assetPath('/american-legion-emblem.png')}
             name="Adjutant"
             title="Placeholder - Add Adjutant Name & Photo"
             linkedinUrl="#"
           />
           <TeamMemberCard
-            imageUrl="/american-legion-emblem.png"
+            imageUrl={assetPath('/american-legion-emblem.png')}
             name="Finance Officer"
             title="Placeholder - Add Finance Officer Name & Photo"
             linkedinUrl="#"
