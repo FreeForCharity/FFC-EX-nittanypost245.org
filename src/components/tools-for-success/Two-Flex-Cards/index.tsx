@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { IoIosArrowForward } from 'react-icons/io'
+import { assetPath } from '@/lib/assetPath'
 
 const Index = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null)
@@ -77,7 +78,7 @@ const Index = () => {
         <div className="w-[100%] lg:w-[47.25%] rounded-[15px] shadow-[0px_2px_70px_-15px_rgba(0,0,0,0.3)] py-[40px] px-[20px] flex flex-col items-start">
           <div className="relative w-full h-[260px] mb-[30px]">
             <Image
-              src="/Images/Free-For-Charity-card.webp"
+              src={assetPath('/american-legion-emblem.png')}
               alt="Placeholder Image"
               fill
               className="object-cover"
