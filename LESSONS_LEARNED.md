@@ -377,23 +377,20 @@ docs: update README with new deployment instructions
 
 ## Deployment Challenges
 
-### GitHub Pages Base Path
+### GitHub Pages Custom Domain
 
-**Challenge**: Images and assets don't load on GitHub Pages deployment
-
-**Root Cause**: GitHub Pages serves the site at `/FFC_Single_Page_Template/` instead of `/`
+**Challenge**: Keeping deployment configuration consistent
 
 **Solution**:
 
-1. Created `assetPath()` helper in `src/lib/assetPath.ts`
-2. Set `NEXT_PUBLIC_BASE_PATH` environment variable in CI
-3. Updated all image references to use `assetPath()`
+- Standardized on GitHub Pages with the custom apex domain `https://nittanypost245.org/`
+- Do not set `NEXT_PUBLIC_BASE_PATH` in production builds
 
-**Lesson**: Always test deployment environment early. Localhost != production.
+**Lesson**: Pick one production URL and keep configs aligned.
 
 ### CNAME and Custom Domain
 
-**Challenge**: Need to support both GitHub Pages URL and custom domain
+**Challenge**: Custom domain configuration
 
 **Solution**:
 

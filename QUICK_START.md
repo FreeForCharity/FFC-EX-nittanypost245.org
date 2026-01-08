@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get up and running with the FFC Single Page Template in 5 minutes.
+Get up and running with the Nittany Post 245 website in 5 minutes.
 
 ## Prerequisites
 
@@ -13,8 +13,8 @@ Get up and running with the FFC Single Page Template in 5 minutes.
 ### 1. Clone the Repository (30 seconds)
 
 ```bash
-git clone https://github.com/FreeForCharity/FFC_Single_Page_Template.git
-cd FFC_Single_Page_Template
+git clone https://github.com/FreeForCharity/FFC-EX-nittanypost245.org.git
+cd FFC-EX-nittanypost245.org
 ```
 
 ### 2. Install Dependencies (17 seconds)
@@ -33,7 +33,7 @@ npm run dev
 
 **Open**: [http://localhost:3000](http://localhost:3000)
 
-**Expected**: Site loads with FFC homepage
+**Expected**: Site loads
 
 ### 4. Verify Setup (2 minutes)
 
@@ -136,7 +136,7 @@ git push origin feature/your-feature-name
 ## Project Structure (Quick Reference)
 
 ```
-FFC_Single_Page_Template/
+FFC-EX-nittanypost245.org/
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx          # Root layout with metadata
@@ -354,8 +354,8 @@ Now that you're set up, check out:
 
 ## Getting Help
 
-- **Issues**: [GitHub Issues](https://github.com/FreeForCharity/FFC_Single_Page_Template/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/FreeForCharity/FFC_Single_Page_Template/discussions)
+- **Issues**: [GitHub Issues](https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/discussions)
 - **Documentation**: Check the `*.md` files in the repository root
 
 ---

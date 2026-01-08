@@ -86,19 +86,14 @@ npm run test:ui
 **Test Suites:**
 
 - `tests/logo.spec.ts` - Verifies logo visibility in NavBar and hero section
-- `tests/github-pages.spec.ts` - Validates image loading for GitHub Pages deployment
+- `tests/image-loading.spec.ts` - Validates image loading for GitHub Pages deployment
 
 **Testing Image Rendering for GitHub Pages:**
-To test the GitHub Pages deployment locally with basePath:
+This site deploys to GitHub Pages using a custom domain at `https://nittanypost245.org/` (no `NEXT_PUBLIC_BASE_PATH`).
 
 ```bash
-# Build with basePath for GitHub Pages
-NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template npm run build
-
-# Preview the site
+npm run build
 npm run preview
-
-# Run tests (in another terminal)
 npm test
 ```
 
@@ -243,7 +238,7 @@ src/
 
 ### Adding Images and Assets
 
-When adding images or other static assets that need to work on both custom domain and GitHub Pages:
+When adding images or other static assets:
 
 **ALWAYS use the `assetPath()` helper for images:**
 
@@ -256,9 +251,8 @@ import { assetPath } from "../lib/assetPath";
 
 **Why this is needed:**
 
-- Custom domain (ffcworkingsite1.org): images at `/my-image.png`
-- GitHub Pages: images at `/FFC_Single_Page_Template/my-image.png`
-- The helper automatically handles both scenarios based on the `NEXT_PUBLIC_BASE_PATH` environment variable
+- Production deploys at `https://nittanypost245.org/` (no `NEXT_PUBLIC_BASE_PATH`), so assets resolve from `/...`.
+- The helper remains useful if you ever preview/build with a non-empty `NEXT_PUBLIC_BASE_PATH`.
 
 **Files using assetPath:**
 
@@ -271,15 +265,13 @@ The site auto-deploys to GitHub Pages via `.github/workflows/deploy.yml` when pu
 
 1. Node.js 20 setup
 2. `npm ci` for clean install
-3. `NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template` is set for GitHub Pages deployment
-4. `next build` builds the site with proper basePath
-5. Playwright tests run to validate the build
-6. Static files deployed from `./out` directory
+3. `next build` builds the static export
+4. Playwright tests run to validate the build
+5. Static files deployed from `./out` directory
 
-**Dual Deployment:**
+**Production Domain:**
 
-- **Custom domain**: https://ffcworkingsite1.org (CNAME configured, no basePath needed)
-- **GitHub Pages**: https://freeforcharity.github.io/FFC_Single_Page_Template/ (basePath required)
+- https://nittanypost245.org/
 
 ## Known Issues and Limitations
 
@@ -342,7 +334,7 @@ This repository includes a comprehensive set of GitHub-recognized community heal
 
 To verify files are recognized by GitHub:
 
-1. Visit: https://github.com/FreeForCharity/FFC_Single_Page_Template/community
+1. Visit: https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/community
 2. Check navigation tabs on mobile (README, Code of conduct, Contributing, License, Security, More)
 3. Look for "Sponsor" button in repository header
 4. Look for "Cite this repository" button
@@ -378,10 +370,6 @@ npm run test:ui      # Run tests with Playwright UI
 # Production (requires font workaround)
 npm run build        # 20 seconds when fonts disabled
 npm run preview      # http://localhost:3000
-
-# Test GitHub Pages deployment locally
-NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template npm run build
-npm run preview      # Test with basePath
 
 # File structure overview
 ls -la src/app/      # Main application code

@@ -13,7 +13,7 @@ This document summarizes the rebranding of the Free For Charity template to Nitt
 - **Location**: 1950 Pine Hall Road, State College, PA 16801
 - **Phone**: (814) 237-6880
 - **Email**: info@post245.com
-- **Website**: https://legioninthewoods.org
+- **Website**: https://nittanypost245.org/
 
 ### History
 
@@ -235,7 +235,7 @@ Serving veterans, active military, and their families through the Four Pillars o
 ## References
 
 - American Legion National: https://www.legion.org
-- Post 245 Website: https://legioninthewoods.org
+- Post 245 Website: https://nittanypost245.org/
 - Post 245 Facebook: https://www.facebook.com/people/American-Legion-Post-245/100064092967036/
 - Pennsylvania Department: https://centennial.legion.org/pennsylvania/post245
 
@@ -268,7 +268,7 @@ Serving veterans, active military, and their families through the Four Pillars o
 
 ## Documentation
 
-This rebranding followed the task outlined in the GitHub issue to rebrand the template for American Legion Post 245, using archived content from legioninthewoods.org via Wayback Machine and official American Legion sources for accurate information.
+This rebranding followed the task outlined in the GitHub issue to rebrand the template for American Legion Post 245, using archived content from the prior site (legioninthewoods.org) via Wayback Machine and official American Legion sources for accurate information.
 
 ---
 

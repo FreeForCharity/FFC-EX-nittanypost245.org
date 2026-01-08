@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This document explains how the Free For Charity website is deployed to GitHub Pages and provides troubleshooting guidance for deployment issues.
+This document explains how the Nittany American Legion Post 245 website is deployed to GitHub Pages and provides troubleshooting guidance for deployment issues.
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ This document explains how the Free For Charity website is deployed to GitHub Pa
 
 ## Overview
 
-The Free For Charity website is a static Next.js application deployed to GitHub Pages. The site is accessible at:
+The Post 245 website is a static Next.js application deployed to GitHub Pages. The site is accessible at:
 
 - **Custom Domain**: https://nittanypost245.org
 
@@ -49,12 +49,9 @@ This generates a static site in the `./out` directory that can be served by any 
 
 ### Asset Path Handling
 
-The site uses the `assetPath()` helper function (located in `src/lib/assetPath.ts`) to handle assets correctly for both:
+The site uses the `assetPath()` helper function (located in `src/lib/assetPath.ts`).
 
-1. **GitHub Pages subpath deployment**: `/FFC_Single_Page_Template/`
-2. **Custom domain deployment**: Root path `/`
-
-The helper uses the `NEXT_PUBLIC_BASE_PATH` environment variable to determine the correct asset path.
+Production is deployed at the custom apex domain `https://nittanypost245.org/`, so `NEXT_PUBLIC_BASE_PATH` should be unset/empty.
 
 ---
 
@@ -103,18 +100,13 @@ The actual steps performed by the deploy workflow are:
 3. **Setup Pages**: Configures GitHub Pages settings
 4. **Restore Next.js cache**: Restores build cache for faster builds
 5. **Install dependencies**: Runs `npm ci` for a clean installation
-6. **Build site**: Runs `next build` with basePath for GitHub Pages
+6. **Build site**: Runs `next build` (static export)
 7. **Upload artifact**: Packages the `./out` directory
 8. **Deploy to GitHub Pages**: Publishes the site to GitHub Pages (separate job)
 
 #### Environment Variables in CI
 
-```yaml
-env:
-  NEXT_PUBLIC_BASE_PATH: /FFC-EX-nittanypost245.org
-```
-
-This ensures images and assets work correctly at the GitHub Pages subpath.
+`NEXT_PUBLIC_BASE_PATH` is intentionally not set for production builds because the site deploys at the domain root.
 
 ### Viewing Deployment Status
 
@@ -161,7 +153,7 @@ While automated deployment is recommended, you can also deploy manually if neede
 4. **Build the site** with the correct base path:
 
    ```bash
-   NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template npm run build
+   npm run build
    ```
 
 5. **Verify the build**:
@@ -177,16 +169,16 @@ While automated deployment is recommended, you can also deploy manually if neede
    # Typically done through the GitHub Actions workflow
    ```
 
-### Building for Custom Domain
+### Building for Production
 
-If deploying to a custom domain (no basePath needed):
+Production is deployed to GitHub Pages using the custom apex domain `https://nittanypost245.org/`.
+
+Build and preview locally:
 
 ```bash
 npm run build
 npm run preview
 ```
-
-The site will be built without a base path, making all assets available at the root.
 
 ---
 
@@ -201,24 +193,21 @@ The site will be built without a base path, making all assets available at the r
 
 ### Custom Domain Setup
 
-If using a custom domain:
+This site uses a custom domain with GitHub Pages:
 
 1. **Add a CNAME file** to the `public` directory with your domain:
 
    ```
-   ffcworkingsite1.org
+   nittanypost245.org
    ```
 
 2. **Configure DNS records** at your domain provider:
-   - **Type**: CNAME
-   - **Name**: www (or @)
-   - **Value**: freeforcharity.github.io
+   - Configure DNS according to GitHub Pages' custom domain documentation for an apex domain.
 
 3. **Enable HTTPS** in GitHub Pages settings (automatic with custom domain)
 
-4. **Update environment variables** if needed:
-   - Remove or leave empty `NEXT_PUBLIC_BASE_PATH` for custom domains
-   - GitHub Actions should detect custom domain and adjust automatically
+4. **Environment variables**:
+   - Leave `NEXT_PUBLIC_BASE_PATH` unset/empty for production
 
 ### DNS Propagation
 
@@ -250,8 +239,6 @@ Environment variables are set in the workflow file:
 ```yaml
 - name: Build with Next.js
   run: npm run build
-  env:
-    NEXT_PUBLIC_BASE_PATH: /FFC_Single_Page_Template
 ```
 
 ### Local Development
@@ -363,16 +350,12 @@ To view detailed deployment logs:
 To test the built site locally before deploying:
 
 ```bash
-# Build with GitHub Pages configuration
-NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template npm run build
-
-# Serve the built site
+# Build and serve the built site
+npm run build
 npm run preview
-
-# Open http://localhost:3000/FFC_Single_Page_Template in your browser
 ```
 
-This simulates how the site will behave on GitHub Pages.
+This simulates how the site will behave in production (domain root).
 
 ---
 

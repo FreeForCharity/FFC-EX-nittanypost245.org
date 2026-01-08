@@ -43,9 +43,8 @@ Based on the provided screenshots and GitHub API data, here's what happened when
 - **Status:** ✅ Completed successfully
 - **Workflow:** Deploy to GitHub Pages
 - **Trigger:** `workflow_run` (after CI completed)
-- **Environment Variable:** `NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template`
 - **Steps Executed:**
-  - Build with Next.js for GitHub Pages
+  - Build static export with Next.js
   - Deploy to GitHub Pages environment
 
 **Note:** Run #38 was skipped (1 second duration) because the CI workflow for the previous commit was cancelled due to concurrency settings.
@@ -116,7 +115,7 @@ concurrency:
 
 - ✅ Only deploys after CI completes successfully
 - ✅ Uses `workflow_run` trigger to avoid duplicate runs
-- ✅ Deployment uses proper basePath for GitHub Pages
+- ✅ Builds and deploys static export to the domain root
 - ✅ Does NOT cancel in-progress deployments (correct for production)
 
 ### Lighthouse CI Workflow (`lighthouse.yml`)

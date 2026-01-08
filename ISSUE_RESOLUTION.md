@@ -203,13 +203,9 @@ Error: Cannot find module '@/components/Header'
    # Your images should be here
    ```
 
-3. **Check NEXT_PUBLIC_BASE_PATH**:
+3. **Build for production (custom domain)**:
 
    ```bash
-   # For GitHub Pages
-   NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template npm run build
-
-   # For custom domain
    npm run build
    ```
 
@@ -415,15 +411,15 @@ npm run test:e2e
    // next.config.ts should have:
    output: 'export'
 
-   // Build should use:
-   NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template
+   // Production deploys to https://nittanypost245.org/ (no basePath)
+   // NEXT_PUBLIC_BASE_PATH should be empty
    ```
 
 3. **Check CNAME file** (if using custom domain):
    ```bash
    # Should be in public/CNAME
    cat public/CNAME
-   # Should contain: ffcworkingsite1.org
+   # Should contain: nittanypost245.org
    ```
 
 ### Issue: Images Load Locally but Not in Production
@@ -674,7 +670,7 @@ See [LIGHTHOUSE.md](./LIGHTHOUSE.md) for detailed guidance. Quick tips:
 
 ### Where do I report bugs?
 
-1. **Check existing issues** first: [GitHub Issues](https://github.com/FreeForCharity/FFC_Single_Page_Template/issues)
+1. **Check existing issues** first: [GitHub Issues](https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/issues)
 2. **Open a new issue** with:
    - Clear description
    - Steps to reproduce
@@ -695,12 +691,12 @@ If your issue isn't covered here:
    - [TESTING.md](./TESTING.md)
    - [DEPLOYMENT.md](./DEPLOYMENT.md)
 3. **Open a discussion**: GitHub Discussions for questions
-4. **Contact maintainers**: hello@freeforcharity.org
+4. **Contact maintainers**: Use GitHub Issues/Discussions
 
 ---
 
-**Last Updated**: 2025-12-03  
-**Repository**: FreeForCharity/FFC_Single_Page_Template  
-**Node.js**: 20.x (validated with v20.19.6)
+**Last Updated**: 2026-01-08  
+**Repository**: FreeForCharity/FFC-EX-nittanypost245.org  
+**Node.js**: 20.x
 
 _This document is continuously updated. If you solve an issue not listed here, please contribute by adding it!_

@@ -613,10 +613,10 @@ If you have questions about code quality standards:
 2. Review existing code for examples
 3. Ask in pull request reviews
 4. Open a discussion on GitHub
-5. Contact maintainers at hello@freeforcharity.org
+5. Contact maintainers via GitHub Issues/Discussions
 
 ---
 
 **Last Updated**: 2025-12-03  
-**Repository**: FreeForCharity/FFC_Single_Page_Template  
+**Repository**: FreeForCharity/FFC-EX-nittanypost245.org  
 **Node.js**: 20.x (validated with v20.19.6)

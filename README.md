@@ -59,7 +59,7 @@ The site features two primary CTAs accessible throughout the experience via glob
 ## Deployment
 
 - **Live Site**: [https://nittanypost245.org](https://nittanypost245.org)
-- **Hosting**: GitHub Pages
+- **Hosting**: GitHub Pages (custom domain)
 - **Deployment**: Automated via GitHub Actions on push to `main` branch
 
 ## Development Status
@@ -178,9 +178,9 @@ npm run test:ui       # Interactive UI mode
 - ✅ **Hero Section Logo Visibility**: Verifies logo appears in hero section with correct src and alt text
 - ✅ **Logo Consistency**: Confirms both logos are present simultaneously and use the same image source
 
-**GitHub Pages Deployment Tests** (`tests/github-pages.spec.ts`)
+**Image Loading Tests** (`tests/image-loading.spec.ts`)
 
-- ✅ **Image Path Compatibility**: Validates logo image paths work for both custom domain and GitHub Pages basePath
+- ✅ **Image Loading**: Validates key images return 200 OK and render
 - ✅ **Image HTTP Status**: Verifies logo images return 200 OK status codes
 - ⏭️ **Image Natural Dimensions** (skipped): Checks image dimensions after load (disabled in CI due to timing issues)
 
@@ -208,7 +208,7 @@ The ESLint warnings fall into three categories:
 1. **`@next/next/no-img-element` warnings (6 occurrences)** - ⚠️ ACCEPTABLE for this project
    - Files: `header/index.tsx`, `footer/index.tsx`, `endowment-fund/Hero/index.tsx`, `free-charity-web-hosting/About-FFC-Hosting/index.tsx`, `ui/General-Donation-Card.tsx`, `ui/trainingcard.tsx`
    - Issue: Using `<img>` tags instead of Next.js `<Image />` component
-   - Why acceptable: This project uses static export (`output: "export"` in `next.config.ts`), which is incompatible with Next.js Image Optimization. We use the `assetPath()` helper to ensure images work correctly on both custom domain and GitHub Pages basePath.
+   - Why acceptable: This project uses static export (`output: "export"` in `next.config.ts`), which is incompatible with Next.js Image Optimization. We use the `assetPath()` helper so assets can optionally support a basePath (production uses none).
    - Alternative fix: Could suppress these specific warnings or migrate to a custom image component
    - Website impact: Images load correctly but without automatic optimization (WebP conversion, lazy loading). For a static nonprofit site with modest image usage, this is an acceptable tradeoff.
 
@@ -293,7 +293,7 @@ The project uses separate workflows for better separation of concerns:
 - ✅ Linting (ESLint)
 - ✅ Unit tests (Jest)
 - ✅ Playwright browser installation
-- ✅ Next.js build with GitHub Pages basePath
+- ✅ Next.js build (static export)
 - ✅ E2E tests (Playwright)
 - ✅ Fast feedback for PRs (no deployment overhead)
 
@@ -303,7 +303,7 @@ The project uses separate workflows for better separation of concerns:
 - ✅ Ensures all tests pass before deployment
 - ✅ Node.js 20 setup
 - ✅ Dependency installation (`npm ci`)
-- ✅ Next.js build with GitHub Pages basePath
+- ✅ Next.js build (static export)
 - ✅ Static site artifact upload
 - ✅ Deployment to GitHub Pages
 - ✅ Separate deployment job with environment protection
@@ -375,145 +375,6 @@ The following enhancements could further improve the test suite:
 - **Deployment Preview**: Add preview deployments for PRs (see detailed guide below)
 - **Cache Optimization**: Improve caching strategy for faster builds
 - **Parallel Testing**: Run test suites in parallel for faster feedback
-
-### Preview Deployments for Static Sites
-
-Preview deployments allow reviewers to see and test changes in a live environment before merging, without needing to clone the repository or run it locally. This is especially valuable for non-technical reviewers.
-
-#### Recommended Options for Nonprofits: Vercel vs Cloudflare Pages
-
-For Free For Charity as a nonprofit organization, we evaluated the best preview deployment platforms based on free tier sustainability and features.
-
-**Platform Comparison for Nonprofits:**
-
-| Feature                           | Vercel                                             | Cloudflare Pages                          |
-| --------------------------------- | -------------------------------------------------- | ----------------------------------------- |
-| **Free Tier Sustainability**      | 🟡 Hobby tier may have future changes              | 🟢 Most likely to remain free             |
-| **Bandwidth Limit**               | 100GB/month                                        | ✅ Unlimited                              |
-| **Build Minutes**                 | 6,000 minutes/month                                | 500 builds/month                          |
-| **Preview Deployments**           | ✅ Unlimited                                       | ✅ Unlimited                              |
-| **Custom Domains**                | ✅ Unlimited                                       | ✅ Unlimited                              |
-| **Next.js Optimization**          | ✅ Excellent (created by Vercel)                   | ✅ Good                                   |
-| **Edge Network**                  | Global CDN                                         | Global CDN (270+ cities)                  |
-| **Nonprofit Program**             | ❌ No specific program                             | ❌ No specific program                    |
-| **Sustainability for Nonprofits** | 🟡 Personal/hobby use, not official nonprofit tier | 🟢 Generous free tier, unlikely to change |
-| **Bot Comments on PRs**           | ✅ Automatic                                       | ✅ Automatic                              |
-| **Build Time (typical)**          | ~2 minutes                                         | ~2-3 minutes                              |
-| **Ease of Setup**                 | 🟢 Very easy (GitHub integration)                  | 🟢 Easy (GitHub integration)              |
-
-**🏆 Recommendation: Cloudflare Pages**
-
-For Free For Charity, **Cloudflare Pages is the better choice** for these reasons:
-
-1. **Most Likely to Stay Free Long-Term**
-   - Cloudflare's business model is built on enterprise customers, not small sites
-   - Unlimited bandwidth makes it sustainable even as traffic grows
-   - No history of restricting free tier features
-
-2. **Unlimited Bandwidth**
-   - Vercel's 100GB/month may become restrictive as the nonprofit grows
-   - Cloudflare has no bandwidth limits on free tier
-   - Better for handling traffic spikes during fundraising campaigns
-
-3. **Better Sustainability Model**
-   - Cloudflare Pages is positioned as a competitive feature, not a revenue source
-   - Vercel's focus on monetization through usage limits may tighten over time
-
-4. **Good Next.js Support**
-   - While Vercel created Next.js, Cloudflare Pages handles static exports excellently
-   - This project uses static export (`output: "export"`), so Vercel's edge runtime advantages don't apply
-
-**⚠️ Vercel Considerations**
-
-Vercel is still a good option if you prioritize:
-
-- Slightly better Next.js-specific tooling
-- Simpler initial setup for Next.js projects
-- Current free tier is adequate for foreseeable traffic
-
-However, the "hobby" designation may be subject to future policy changes, and the 100GB bandwidth limit could become restrictive.
-
-#### Workflow for Creators and Reviewers
-
-Both platforms provide identical workflows:
-
-**Creator:**
-
-1. Create feature branch
-2. Make changes and push to GitHub
-3. Open pull request
-4. Wait for automatic preview deployment (1-3 minutes)
-5. Share preview URL from bot comment
-
-**Reviewer:**
-
-1. Open PR on GitHub
-2. Click preview URL in bot comment
-3. Test the live site in browser (no IDE or local setup needed)
-4. Provide feedback on PR
-5. Changes automatically deploy on new commits
-
-**Coexistence with GitHub Pages:**
-
-- Keep GitHub Pages for production (ffcworkingsite1.org)
-- Use Cloudflare Pages or Vercel for PR previews only
-- No conflicts between systems
-
-#### Setting Up Cloudflare Pages (Recommended)
-
-1. **Sign Up/Sign In**
-   - Go to [pages.cloudflare.com](https://pages.cloudflare.com)
-   - Sign in with GitHub (or create Cloudflare account)
-
-2. **Connect Repository**
-   - Click "Create a project" → "Connect to Git"
-   - Select "GitHub" and authorize Cloudflare Pages
-   - Choose this repository
-
-3. **Configure Build Settings**
-   - Framework preset: Select "Next.js (Static HTML Export)"
-   - Build command: `npm run build`
-   - Build output directory: `out`
-   - Environment variables: Leave `NEXT_PUBLIC_BASE_PATH` unset
-     - GitHub Pages needs `/FFC_Single_Page_Template` for subdirectory routing
-     - Cloudflare Pages deploys to root, no basePath needed
-
-4. **Enable Preview Deployments**
-   - In project settings → Builds & deployments
-   - Enable "Enable automatic preview deployments" (should be on by default)
-   - Enable "Enable comments on pull requests"
-
-5. **Deploy**
-   - Click "Save and Deploy"
-   - First build will take 2-3 minutes
-   - Future PR preview deployments are automatic
-
-**Result**: Every PR will have a comment like:
-
-```
-✅ Preview deployed to https://abc123.ffc-template.pages.dev
-🔗 Production: https://ffc-template.pages.dev
-```
-
-#### Setting Up Vercel (Alternative)
-
-If you prefer Vercel:
-
-1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
-2. Click "Add New..." → "Project"
-3. Import this repository
-4. Configure:
-   - Framework Preset: Next.js
-   - Build Command: `npm run build`
-   - Output Directory: `out`
-   - Leave `NEXT_PUBLIC_BASE_PATH` unset
-5. Deploy
-
-Vercel automatically enables PR preview deployments and comments.
-
-**Full Testing Guide:** See [TESTING.md](./TESTING.md) for complete documentation.
-
-**Security Documentation:** See [SECURITY.md](./SECURITY.md) for branch protection rules and security best practices.
 
 ## Key Features
 
@@ -626,8 +487,7 @@ The site is configured for static export and deployed to GitHub Pages:
 
 **Production:**
 
-- Live at: [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
-- GitHub Pages URL: [https://freeforcharity.github.io/FFC_Single_Page_Template/](https://freeforcharity.github.io/FFC_Single_Page_Template/)
+- Live at: [https://nittanypost245.org](https://nittanypost245.org)
 - Deployment: Automatic via GitHub Actions (`.github/workflows/deploy.yml`)
 - Trigger: Push to `main` branch
 - Build output: Static files in `./out` directory
@@ -664,7 +524,7 @@ We welcome new contributors and believe fresh perspectives are invaluable! **You
 
 #### How to Get Started
 
-1. **Explore the live site:** [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
+1. **Explore the live site:** [https://nittanypost245.org](https://nittanypost245.org)
 2. **Test thoroughly:** Try all features, navigation, and responsive behavior
 3. **Document findings:** Create a review issue using our template
 4. **Report issues:** File separate issues for bugs and enhancements you discover
@@ -673,7 +533,9 @@ We welcome new contributors and believe fresh perspectives are invaluable! **You
 
 Use our **Reviewer Onboarding template** to document your findings:
 
-[**Create Reviewer Onboarding Issue**](https://github.com/FreeForCharity/FFC_Single_Page_Template/issues/new?assignees=&labels=documentation%2Creview%2Conboarding&template=reviewer-onboarding.md)
+[**Create Reviewer Onboarding Issue**](https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/issues/new?assignees=&labels=documentation%2Creview%2Conboarding&template=reviewer-onboarding.md)
+
+The template is stored in this repository and links to the live site.
 
 The template guides you through:
 
@@ -695,7 +557,7 @@ Once your review is complete:
 - Start contributing code improvements
 - Help review other contributions
 
-**Ready to help make Free For Charity better? Start your review today!**
+**Ready to help improve the Post 245 website? Start your review today!**
 
 ---
 

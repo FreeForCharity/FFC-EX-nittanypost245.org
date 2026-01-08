@@ -1,23 +1,23 @@
 # Support
 
-Thank you for using the Free For Charity website template! This document provides information on how to get help and support.
+This document provides information on how to get help and support for the Nittany American Legion Post 245 website.
 
 ## 📧 Getting Help
 
 ### For General Questions
 
-If you have general questions about using this template or Free For Charity's services:
+If you have general questions about the site:
 
 - **Email**: clarkemoyer@freeforcharity.org
 - **Phone**: 520-222-8104 (text preferred)
-- **Website**: [freeforcharity.org](https://ffcworkingsite1.org)
+- **Website**: [nittanypost245.org](https://nittanypost245.org)
 
 ### For Technical Issues
 
 If you encounter technical issues, bugs, or need development help:
 
-1. **Search Existing Issues**: Check if your issue has already been reported in the [Issues](https://github.com/FreeForCharity/FFC_Single_Page_Template/issues) section
-2. **Open a New Issue**: If your issue is new, [create an issue](https://github.com/FreeForCharity/FFC_Single_Page_Template/issues/new) with detailed information:
+1. **Search Existing Issues**: Check if your issue has already been reported in the [Issues](https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/issues) section
+2. **Open a New Issue**: If your issue is new, [create an issue](https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/issues/new) with detailed information:
    - Description of the problem
    - Steps to reproduce
    - Expected vs actual behavior
@@ -53,20 +53,13 @@ Want to contribute? Please read our [Contributing Guidelines](./CONTRIBUTING.md)
 
 All community interactions are governed by our [Code of Conduct](./CODE_OF_CONDUCT.md). Please review it to understand expected behavior.
 
-## 🎯 Free For Charity Services
+## 🎯 Post 245
 
-Free For Charity offers various services to nonprofits:
-
-- **Free Web Hosting**: Professional hosting for nonprofit websites
-- **Domain Names**: Free domain registration and management
-- **Microsoft 365 Grants**: Assistance with Microsoft nonprofit programs
-- **Consulting Services**: Technical guidance and support
-
-**To apply for services**: Visit our [website](https://ffcworkingsite1.org) and click "Apply for Services" or contact us directly.
+This repository contains the website for Nittany American Legion Post 245.
 
 ## 🔗 Additional Resources
 
-- **Organization Website**: [ffcworkingsite1.org](https://ffcworkingsite1.org)
+- **Organization Website**: [nittanypost245.org](https://nittanypost245.org)
 - **GitHub Organization**: [@FreeForCharity](https://github.com/FreeForCharity)
 - **EIN**: 46-2471893 (501(c)(3) nonprofit)
 
@@ -83,4 +76,4 @@ Please note that this is a nonprofit project maintained by volunteers, so respon
 
 ---
 
-**Thank you for being part of the Free For Charity community!**
+**Thank you for supporting Nittany Post 245!**
