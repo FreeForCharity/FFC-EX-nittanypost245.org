@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { FiMenu } from 'react-icons/fi'
 import { LiaSearchSolid } from 'react-icons/lia'
 import { RxCross2 } from 'react-icons/rx'
@@ -16,6 +17,7 @@ interface MenuItem {
 const SCROLL_OFFSET = 100
 
 const Header: React.FC = () => {
+  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -27,7 +29,7 @@ const Header: React.FC = () => {
       { label: 'About', path: '/#mission' },
       { label: 'Programs', path: '/#programs' },
       { label: 'Events', path: '/#events' },
-      { label: 'Membership', path: '/#membership' },
+      { label: 'Membership', path: '/membership' },
       { label: 'Contact', path: '/#contact' },
     ],
     []
@@ -81,6 +83,11 @@ const Header: React.FC = () => {
   }
 
   const isActive = (path: string) => {
+    // Handle full page paths (like /membership)
+    if (!path.startsWith('/#')) {
+      return pathname.startsWith(path)
+    }
+    // Handle hash links (sections on homepage)
     const sectionId = path.replace('/#', '')
     if (sectionId === 'hero') return activeSection === ''
     return activeSection === sectionId
