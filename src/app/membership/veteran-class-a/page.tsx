@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Veteran Class A Membership | American Legion Post 245',
+  title: 'Veteran Class A Membership',
   description:
     'Join American Legion Post 245 as a Veteran Class A member. Eligibility requirements and membership benefits for wartime veterans.',
 }
