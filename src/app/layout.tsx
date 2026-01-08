@@ -99,7 +99,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href={`${basePath}/Images/figma-hero-img.webp`}
+          href={`${basePath}/american-legion-emblem.png`}
           fetchPriority="high"
         />
 
