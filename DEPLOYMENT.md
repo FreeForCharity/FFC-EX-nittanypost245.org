@@ -19,8 +19,7 @@ This document explains how the Free For Charity website is deployed to GitHub Pa
 
 The Free For Charity website is a static Next.js application deployed to GitHub Pages. The site is accessible at:
 
-- **GitHub Pages URL**: https://freeforcharity.github.io/FFC_Single_Page_Template/
-- **Custom Domain**: https://ffcworkingsite1.org
+- **Custom Domain**: https://nittanypost245.org
 
 ### Technology Stack
 
@@ -112,7 +111,7 @@ The actual steps performed by the deploy workflow are:
 
 ```yaml
 env:
-  NEXT_PUBLIC_BASE_PATH: /FFC_Single_Page_Template
+   NEXT_PUBLIC_BASE_PATH: /FFC-EX-nittanypost245.org
 ```
 
 This ensures images and assets work correctly at the GitHub Pages subpath.
@@ -141,8 +140,8 @@ While automated deployment is recommended, you can also deploy manually if neede
 1. **Clone the repository** (if not already done):
 
    ```bash
-   git clone https://github.com/FreeForCharity/FFC_Single_Page_Template.git
-   cd FFC_Single_Page_Template
+   git clone https://github.com/FreeForCharity/FFC-EX-nittanypost245.org.git
+   cd FFC-EX-nittanypost245.org
    ```
 
 2. **Install dependencies**:

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the Free For Charity Website Template will be documented in this file.
+All notable changes to this website will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+- Repository synced from `FreeForCharity/FFC-EX-legioninthewoods.org` and deployed to https://nittanypost245.org (Issue #4, PR #5)
 
 - Community health files for better GitHub integration
   - SUPPORT.md for support resources
@@ -83,5 +85,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Automated testing in CI
 - Merge queue verification
 
-[unreleased]: https://github.com/FreeForCharity/FFC_Single_Page_Template/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/FreeForCharity/FFC_Single_Page_Template/releases/tag/v0.1.0
+[unreleased]: https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/FreeForCharity/FFC-EX-nittanypost245.org/releases/tag/v0.1.0
