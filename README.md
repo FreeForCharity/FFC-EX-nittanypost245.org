@@ -1,6 +1,6 @@
-# Free For Charity Website
+# Nittany American Legion Post 245 Website
 
-Single-page Next.js 16.0.7 website built with App Router for Free For Charity nonprofit organization.
+Single-page Next.js 16.0.7 website built with App Router for Nittany American Legion Post 245 ("The Legion in the Woods").
 
 ## 🎉 Phase 5 Implementation Complete
 
@@ -19,7 +19,7 @@ Single-page Next.js 16.0.7 website built with App Router for Free For Charity no
 
 ## Organization
 
-**Free For Charity** is a 501(c)(3) nonprofit organization (EIN: 46-2471893) dedicated to supporting other nonprofits.
+**Nittany American Legion Post 245** serves veterans, active military, and their families in the State College / Centre County community.
 
 ## CNCF-Compliant Open Source Project
 
@@ -58,8 +58,7 @@ The site features two primary CTAs accessible throughout the experience via glob
 
 ## Deployment
 
-- **Live Site**: [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
-- **GitHub Pages**: [https://freeforcharity.github.io/FFC_Single_Page_Template/](https://freeforcharity.github.io/FFC_Single_Page_Template/)
+- **Live Site**: [https://nittanypost245.org](https://nittanypost245.org)
 - **Hosting**: GitHub Pages
 - **Deployment**: Automated via GitHub Actions on push to `main` branch
 
@@ -78,8 +77,7 @@ The site is live and fully functional with the following features:
 - Social media links configured (Facebook, Twitter/X, LinkedIn, GitHub)
 - Footer links fully functional with proper destinations
 - Contact information complete (email, phone, addresses)
-- Deployed to live domain: [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
-- Dual deployment: Custom domain and GitHub Pages
+- Deployed to live domain: [https://nittanypost245.org](https://nittanypost245.org)
 
 ⚠️ **Known Limitations:**
 
