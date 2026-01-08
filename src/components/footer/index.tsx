@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
+import ZeffyDonateButton from '@/components/donate/zeffy-donate-button'
 
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -78,6 +79,8 @@ const Footer: React.FC = () => {
               </li>
             ))}
           </ul>
+
+          <ZeffyDonateButton className="inline-flex items-center justify-center text-[16px] font-[500] hover:text-[#F58C23] hover:tracking-widest transition-all" />
 
           <div className="space-y-3">
             <h4 className="text-[28px] text-white">Post Resources</h4>

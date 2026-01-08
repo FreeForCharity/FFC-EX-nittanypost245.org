@@ -3,10 +3,10 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { FiMenu } from 'react-icons/fi'
-import { LiaSearchSolid } from 'react-icons/lia'
 import { RxCross2 } from 'react-icons/rx'
 import { motion, AnimatePresence } from 'framer-motion'
 import { assetPath } from '@/lib/assetPath'
+import ZeffyDonateButton from '@/components/donate/zeffy-donate-button'
 
 interface MenuItem {
   label: string
@@ -17,7 +17,6 @@ const SCROLL_OFFSET = 100
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState<string>('')
 
@@ -73,10 +72,7 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScrollSpy)
   }, [sections])
 
-  const handleSearchToggle = () => setIsSearchOpen(!isSearchOpen)
-
   const handleLinkClick = () => {
-    setIsSearchOpen(false)
     setIsMobileMenuOpen(false)
   }
 
@@ -111,73 +107,47 @@ const Header: React.FC = () => {
               </Link>
             </div>
 
-            {/* Menu or Search */}
-            {!isSearchOpen ? (
-              <div className="flex items-center justify-end sm:pl-[50px] md:pl-[70px] w-full">
-                {/* Desktop Menu */}
-                <nav className="hidden lg:block transition-all duration-300">
-                  <ul className="flex items-center space-x-[1px] font-navbar font-[600]">
-                    {menuItems.map((item, index) => (
-                      <li key={index} className="relative py-6">
-                        <Link
-                          href={item.path}
-                          onClick={handleLinkClick}
-                          className={`flex items-center px-3 py-2 text-[14px] transition-colors duration-200 ${
-                            isActive(item.path)
-                              ? 'text-blue-600'
-                              : 'text-gray-600 hover:text-gray-500'
-                          }`}
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
+            {/* Menu */}
+            <div className="flex items-center justify-end sm:pl-[50px] md:pl-[70px] w-full">
+              {/* Desktop Menu */}
+              <nav className="hidden lg:block transition-all duration-300">
+                <ul className="flex items-center space-x-[1px] font-navbar font-[600]">
+                  {menuItems.map((item, index) => (
+                    <li key={index} className="relative py-6">
+                      <Link
+                        href={item.path}
+                        onClick={handleLinkClick}
+                        className={`flex items-center px-3 py-2 text-[14px] transition-colors duration-200 ${
+                          isActive(item.path)
+                            ? 'text-blue-600'
+                            : 'text-gray-600 hover:text-gray-500'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
 
-                {/* Search Icon */}
-                <div className="hidden lg:flex items-center">
-                  <button
-                    onClick={handleSearchToggle}
-                    className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
-                    aria-label="Search"
-                  >
-                    <LiaSearchSolid className="h-5 w-5 cursor-pointer" />
-                  </button>
-                </div>
+              {/* Donate Button (replaces search icon) */}
+              <div className="hidden lg:flex items-center">
+                <ZeffyDonateButton className="px-3 py-2 text-[14px] font-navbar font-[600] text-gray-600 hover:text-blue-600 transition-colors" />
+              </div>
 
-                {/* Mobile Menu Button */}
-                <button
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="lg:hidden p-2 text-gray-600 hover:text-blue-600"
-                  aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-                >
-                  {isMobileMenuOpen ? (
-                    <RxCross2 className="h-6 w-6" />
-                  ) : (
-                    <FiMenu className="h-6 w-6" />
-                  )}
-                </button>
-              </div>
-            ) : (
-              // Search Input
-              <div className="w-full max-w-[750px] ml-auto flex items-center justify-between transition-all duration-300">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="w-full px-4 py-2 focus:outline-none"
-                  autoFocus
-                  aria-label="Search input"
-                />
-                <button
-                  onClick={handleSearchToggle}
-                  className="ml-2 p-2 text-gray-600"
-                  aria-label="Close search"
-                >
-                  <RxCross2 className="cursor-pointer h-5 w-5" />
-                </button>
-              </div>
-            )}
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden p-2 text-gray-600 hover:text-blue-600"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              >
+                {isMobileMenuOpen ? (
+                  <RxCross2 className="h-6 w-6" />
+                ) : (
+                  <FiMenu className="h-6 w-6" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>
