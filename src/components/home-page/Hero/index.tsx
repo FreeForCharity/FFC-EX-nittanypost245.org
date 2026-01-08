@@ -63,7 +63,7 @@ const CharityHeroBackground = () => {
         </div>
 
         {/* Fixed right side image section */}
-        <div className="relative w-full max-w-[445px] aspect-square bg-white rounded-full p-12 flex items-center justify-center">
+        <div className="relative w-full max-w-[445px] aspect-square bg-white rounded-full overflow-hidden p-12 flex items-center justify-center">
           <div className="relative w-full h-full">
             <Image
               src={assetPath('/american-legion-emblem.png')}
