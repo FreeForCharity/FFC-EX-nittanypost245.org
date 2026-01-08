@@ -1,73 +1,67 @@
-import React, { CSSProperties, IframeHTMLAttributes } from 'react'
-import Image from 'next/image'
+import React from 'react'
 
-interface ExtendedIframeProps extends IframeHTMLAttributes<HTMLIFrameElement> {
-  allowpaymentrequest?: string
-  allowtransparency?: string
-}
-
-const Index = () => {
-  const donationFormStyle: CSSProperties = {
-    position: 'absolute',
-    border: '0',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    width: '100%',
-    height: '100%',
-  }
-
-  const donationFormProps: ExtendedIframeProps = {
-    title: 'Donation form powered by Zeffy',
-    style: donationFormStyle,
-    src: 'https://www.zeffy.com/embed/donation-form/free-for-charity-endowment-fund',
-    allowpaymentrequest: '',
-    allowtransparency: 'true',
-  }
-
+const SupportPost = () => {
   return (
-    <div id="donate">
+    <div id="contact">
       <div className="w-[90%] mx-auto py-[27px] mb-[60px] px-[20px] max-w-[1280px]">
         <h1
           className="font-[400] text-[40px] lg:text-[48px] leading-[100%] tracking-[0] text-center mx-auto mb-[60px]"
           id="faustina-font"
         >
-          Support Free For Charity
+          Support Our Post
         </h1>
 
         <div className="flex items-center flex-col lg:flex-row gap-[40px] lg:gap-[20px]">
-          {/* Left side: Description and pointing hands image */}
+          {/* Left side: Description */}
           <div className="flex flex-col w-full lg:w-[50%]">
             <p
               className="mb-[20px] font-[400] text-[25px] leading-[150%] tracking-[0] text-center lg:text-left"
               id="lato-font"
             >
-              By donating you help drive our mission and allow us to support more charities with our
-              Domain, Website, and other services.
+              Your donations help us continue serving veterans, supporting youth programs, and
+              giving back to our community. Every contribution makes a difference in the lives of
+              those who served our country.
             </p>
-            {/* Pointing hands image - flipped horizontally to point toward the form on the right */}
-            <div className="w-full flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[400px] aspect-[578/386]">
-                <Image
-                  src="/Images/support-free-for-charity.webp"
-                  alt="support free for charity image"
-                  fill
-                  className="object-contain scale-x-[-1]"
-                  loading="lazy"
-                />
-              </div>
+            <p
+              className="mb-[20px] font-[400] text-[20px] leading-[150%] tracking-[0] text-center lg:text-left"
+              id="lato-font"
+            >
+              Contact us to learn about donation opportunities, sponsorships, and ways to support
+              American Legion Post 245.
+            </p>
+            <div className="text-center lg:text-left mt-[20px]">
+              <a
+                href="mailto:info@post245.com"
+                className="inline-block px-8 py-3 bg-[#002D62] text-white rounded-[27px] text-[20px] font-[500] hover:bg-[#BF0D3E] transition-colors"
+                id="lato-font"
+              >
+                Email Us
+              </a>
             </div>
           </div>
 
-          {/* Right side: Zeffy Donation Form */}
+          {/* Right side: Support Information */}
           <div className="w-full lg:w-[50%] flex justify-center">
-            <div
-              className="relative w-full max-w-[500px] h-[600px] bg-white rounded-lg shadow-lg overflow-hidden"
-              role="region"
-              aria-label="Donation form"
-            >
-              <iframe {...donationFormProps}></iframe>
+            <div className="w-full max-w-[500px] bg-[#f5f5f5] rounded-lg p-8">
+              <h3 className="text-[28px] font-[600] mb-4 text-[#002D62]" id="lato-font">
+                Ways to Support
+              </h3>
+              <ul
+                className="space-y-4 text-[18px] list-disc pl-5 marker:text-[#BF0D3E]"
+                id="lato-font"
+              >
+                <li>General donations to support post operations</li>
+                <li>Youth program sponsorships</li>
+                <li>Scholarship fund contributions</li>
+                <li>Honor Guard equipment and uniforms</li>
+                <li>Veteran assistance programs</li>
+              </ul>
+              <div className="mt-6 p-4 bg-white rounded">
+                <p className="text-[16px] text-gray-700" id="lato-font">
+                  American Legion Post 245 is a 501(c)(19) veterans organization. Contact us for
+                  information about tax-deductible giving.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -76,4 +70,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default SupportPost

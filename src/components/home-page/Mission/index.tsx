@@ -8,41 +8,27 @@ const index = () => {
           className="font-[400] text-[40px] lg:text-[48px] leading-[100%] tracking-[0] text-center w-full lg:w-[906px] mx-auto mb-[50px]"
           id="faustina-font"
         >
-          Free For Charity has a simple mission with broad implications
+          For God and Country
         </h1>
         <p
           className="font-[700] text-[25px] leading-[150%] tracking-[0] text-center mb-[30px]"
           id="lato-font"
         >
-          Reduce costs and increase revenues for nonprofits; putting that money back into their
-          charitable mission where it belongs.
+          Nittany American Legion Post 245 serves veterans, active military, and their families
+          through mutual helpfulness, community service, and dedication to Americanism.
         </p>
         <p
           className="font-[500] text-[25px] leading-[150%] tracking-[0] text-center"
           id="lato-font"
         >
-          This charity for charities seeks to replace as many functions as possible that current
-          nonprofits pay for to for-profit companies with free or at cost work from our campus, on
-          site projects, or partnerships with other entities.
+          Chartered on October 19, 1919, with Theodore D. Boal as our first commander, we have been
+          proudly serving the State College and Centre County community for over 100 years. Known
+          locally as &quot;The Legion in the Woods,&quot; our post at 1950 Pine Hall Road is a
+          historic gathering place providing camaraderie and support to those who served.
         </p>
-        <div className="mt-[50px] flex justify-center">
-          <video
-            className="w-full max-w-[800px] rounded-lg shadow-lg"
-            controls
-            playsInline
-            preload="metadata"
-            poster="/videos/mission-video-poster.webp"
-            aria-label="Free For Charity mission video"
-            title="Learn about Free For Charity's mission to help nonprofits reduce costs"
-          >
-            {/* <source src="/videos/mission-video.mp4" type="video/mp4" /> */}
-            <source src="https://ffcsites.org/videos/mission-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
       </div>
 
-      <div className="w-[95%] mt-[50px] mx-auto border border-[#2B627B]"></div>
+      <div className="w-[95%] mt-[50px] mx-auto border border-[#002D62]"></div>
     </div>
   )
 }

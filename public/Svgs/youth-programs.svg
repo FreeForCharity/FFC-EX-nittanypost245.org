@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- People/group icon for youth programs -->
+  <circle cx="100" cy="100" r="90" fill="#BF0D3E"/>
+  <!-- Three simplified people figures -->
+  <g fill="white">
+    <!-- Left person -->
+    <circle cx="70" cy="80" r="12"/>
+    <path d="M70 92 L60 130 L80 130 Z"/>
+    <!-- Center person -->
+    <circle cx="100" cy="70" r="15"/>
+    <path d="M100 85 L88 130 L112 130 Z"/>
+    <!-- Right person -->
+    <circle cx="130" cy="80" r="12"/>
+    <path d="M130 92 L120 130 L140 130 Z"/>
+  </g>
+  <text x="100" y="170" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" font-weight="bold">Youth</text>
+</svg>

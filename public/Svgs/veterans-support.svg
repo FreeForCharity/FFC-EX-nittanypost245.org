@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- American flag star icon for veterans support -->
+  <circle cx="100" cy="100" r="90" fill="#002D62"/>
+  <path d="M100 40 L110 70 L142 70 L116 90 L126 120 L100 100 L74 120 L84 90 L58 70 L90 70 Z" fill="#FFD700"/>
+  <text x="100" y="170" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" font-weight="bold">Veterans</text>
+</svg>

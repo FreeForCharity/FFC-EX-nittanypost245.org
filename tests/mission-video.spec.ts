@@ -1,47 +1,39 @@
 import { test, expect } from '@playwright/test'
-import { testConfig } from './test.config'
 
 /**
- * Mission Video Tests
+ * Mission Section Tests (Simplified)
  *
- * These tests verify that the mission video is present and properly configured
- * on the homepage mission section.
- *
- * Note: Test expectations use values from test.config.ts for easy customization
+ * These tests verify that the mission section is present and properly configured
+ * on the homepage for American Legion Post 245.
  */
 
-test.describe('Mission Video', () => {
-  test('should display video in mission section', async ({ page }) => {
+test.describe('Mission Section', () => {
+  test('should display mission section with Post 245 content', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/')
 
-    // Find the video element with the aria-label
-    const missionVideo = page.locator(`video[aria-label="${testConfig.missionVideo.ariaLabel}"]`)
+    // Find the mission section
+    const missionSection = page.locator('#mission')
 
-    // Verify the video exists and is visible
-    await expect(missionVideo).toBeVisible()
+    // Verify the mission section exists and is visible
+    await expect(missionSection).toBeVisible()
 
-    // Verify the video has the correct accessibility attributes
-    await expect(missionVideo).toHaveAttribute('aria-label', testConfig.missionVideo.ariaLabel)
-    await expect(missionVideo).toHaveAttribute('title', testConfig.missionVideo.title)
-
-    // Verify the video has controls enabled
-    await expect(missionVideo).toHaveAttribute('controls', '')
+    // Verify it contains American Legion Post 245 content
+    await expect(missionSection).toContainText('American Legion')
   })
 
-  test('should have video source configured correctly', async ({ page }) => {
+  test('should have accessible mission content', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/')
 
-    // Find the video source element
-    const videoSource = page.locator(
-      `video[aria-label="${testConfig.missionVideo.ariaLabel}"] source`
-    )
+    // Find the mission section
+    const missionSection = page.locator('#mission')
 
-    // Verify the source exists
-    await expect(videoSource).toHaveCount(1)
+    // Verify the section exists
+    await expect(missionSection).toBeVisible()
 
-    // Verify the source has the correct type
-    await expect(videoSource).toHaveAttribute('type', 'video/mp4')
+    // Verify it has some descriptive content (heading or paragraph)
+    const hasContent = await missionSection.locator('h1, h2, h3, p').count()
+    expect(hasContent).toBeGreaterThan(0)
   })
 })

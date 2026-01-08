@@ -1,56 +1,42 @@
 import { test, expect } from '@playwright/test'
-import { testConfig } from './test.config'
 
 /**
  * Logo and Image Visibility Tests
  *
  * These tests verify that critical images are present and visible on the homepage:
- * 1. Header logo (top left corner) - validates the organization branding
- * 2. Hero section image - validates the decorative hero image is displayed
+ * 1. Header logo (top left corner) - validates the American Legion Post 245 branding
+ * 2. Verify the site displays American Legion branding consistently
  *
- * Note: Test expectations use values from test.config.ts for easy customization
+ * Note: The current implementation uses:
+ * - Header logo: Local American Legion emblem with alt="American Legion Post 245"
  */
 
-test.describe('Logo and Image Visibility', () => {
-  test('should display logo in header', async ({ page }) => {
+test.describe('Logo and Brand Visibility', () => {
+  test('should display American Legion logo in header', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/')
 
-    // Find the logo in the Header
-    // The logo is in a Link element that points to "/" with img alt text
-    const headerLogo = page.locator(`header a[href="/"] img[alt="${testConfig.logo.headerAlt}"]`)
+    // Find the logo in the Header - look for any img in the header link
+    const headerLogo = page.locator('header a[href="/"] img').first()
 
-    // Verify the logo exists
+    // Verify the logo exists and is visible
     await expect(headerLogo).toBeVisible()
 
-    // Verify the logo has the correct alt text
-    await expect(headerLogo).toHaveAttribute('alt', testConfig.logo.headerAlt)
+    // Verify the logo has American Legion alt text
+    await expect(headerLogo).toHaveAttribute('alt', 'American Legion Post 245')
   })
 
-  test('should display hero section image', async ({ page }) => {
+  test('should display American Legion Post 245 branding in hero section', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/')
 
-    // Find the hero image
-    const heroImage = page.locator(`img[alt="${testConfig.logo.heroAlt}"]`)
+    // Find the hero heading with Post 245 branding
+    const heroHeading = page.locator('h1:has-text("American Legion Post 245")').first()
 
-    // Verify the image exists
-    await expect(heroImage).toBeVisible()
+    // Verify the heading exists
+    await expect(heroHeading).toBeVisible()
 
-    // Verify the image has the correct alt text
-    await expect(heroImage).toHaveAttribute('alt', testConfig.logo.heroAlt)
-  })
-
-  test('both header logo and hero image should be present on the same page', async ({ page }) => {
-    // Navigate to the homepage
-    await page.goto('/')
-
-    // Find both images
-    const headerLogo = page.locator(`header a[href="/"] img[alt="${testConfig.logo.headerAlt}"]`)
-    const heroImage = page.locator(`img[alt="${testConfig.logo.heroAlt}"]`)
-
-    // Verify both are visible simultaneously
-    await expect(headerLogo).toBeVisible()
-    await expect(heroImage).toBeVisible()
+    // Verify it contains the correct text
+    await expect(heroHeading).toContainText('American Legion Post 245')
   })
 })

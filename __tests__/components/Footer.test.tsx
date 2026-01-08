@@ -13,9 +13,9 @@ describe('Footer component', () => {
     expect(footer).toBeInTheDocument()
   })
 
-  it('should display Endorsements section', () => {
+  it('should display About Post 245 section', () => {
     render(<Footer />)
-    expect(screen.getByText('Endorsements')).toBeInTheDocument()
+    expect(screen.getByText('About Post 245')).toBeInTheDocument()
   })
 
   it('should display Quick Links section', () => {
@@ -41,10 +41,9 @@ describe('Footer component', () => {
     expect(screen.getByText(new RegExp(currentYear.toString()))).toBeInTheDocument()
   })
 
-  it('should have GuideStar profile link', () => {
+  it('should have American Legion Post 245 branding', () => {
     render(<Footer />)
-    const guidestarLink = screen.getByText(/GuideStar Profile/i)
-    expect(guidestarLink).toBeInTheDocument()
+    expect(screen.getByText(/For God and Country/i)).toBeInTheDocument()
   })
 
   it('should have email contact link', () => {
