@@ -32,8 +32,7 @@ export default function MembershipPage() {
     },
     {
       title: 'Social Membership (Post 245 Inc.)',
-      description:
-        'Community members who want to support Post 245 through social membership.',
+      description: 'Community members who want to support Post 245 through social membership.',
       path: '/membership/post-245-inc',
       icon: '🤝',
     },

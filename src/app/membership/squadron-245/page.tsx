@@ -60,7 +60,9 @@ export default function Squadron245Page() {
 
         {/* About S.A.L. */}
         <div className="mb-8">
-          <h2 className="text-[26px] text-[#333] font-[700] mb-4">About Sons of The American Legion</h2>
+          <h2 className="text-[26px] text-[#333] font-[700] mb-4">
+            About Sons of The American Legion
+          </h2>
           <div className="bg-white border-2 border-gray-200 rounded-lg p-6">
             <p className="text-[14px] text-[#666] leading-[24px] font-[500] mb-4">
               The Sons of The American Legion was created in 1932 as an organization within The
