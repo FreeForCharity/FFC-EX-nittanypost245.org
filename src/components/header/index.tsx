@@ -68,11 +68,15 @@ const Header: React.FC = () => {
     }
 
     window.addEventListener('scroll', handleScrollSpy)
+    handleScrollSpy()
+
     return () => window.removeEventListener('scroll', handleScrollSpy)
   }, [sections])
 
   const handleSearchToggle = () => setIsSearchOpen(!isSearchOpen)
+
   const handleLinkClick = () => {
+    setIsSearchOpen(false)
     setIsMobileMenuOpen(false)
   }
 
@@ -94,13 +98,15 @@ const Header: React.FC = () => {
           <div className="flex items-center px-2 transition-all duration-300">
             {/* Logo */}
             <div
-              className={`transition-all duration-300 ${isScrolled ? 'w-[110px]' : 'w-[150px]'}`}
+              className={`transition-all duration-300 ${isScrolled ? 'w-[160px]' : 'w-[220px]'}`}
             >
               <Link href="/" onClick={handleLinkClick} className="block">
                 <img
                   src={assetPath('/american-legion-emblem.png')}
                   alt="American Legion Post 245"
-                  className={`transition-all duration-300 ${isScrolled ? 'h-7' : 'h-11'}`}
+                  className={`w-auto object-contain transition-all duration-300 ${
+                    isScrolled ? 'h-10' : 'h-14'
+                  }`}
                 />
               </Link>
             </div>
