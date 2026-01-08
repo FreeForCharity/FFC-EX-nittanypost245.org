@@ -6,6 +6,7 @@ import { FiMenu } from 'react-icons/fi'
 import { LiaSearchSolid } from 'react-icons/lia'
 import { RxCross2 } from 'react-icons/rx'
 import { motion, AnimatePresence } from 'framer-motion'
+import { assetPath } from '@/lib/assetPath'
 
 interface MenuItem {
   label: string
@@ -23,12 +24,11 @@ const Header: React.FC = () => {
   const menuItems: MenuItem[] = useMemo(
     () => [
       { label: 'Home', path: '/#hero' },
-      { label: 'Mission', path: '/#mission' },
+      { label: 'About', path: '/#mission' },
       { label: 'Programs', path: '/#programs' },
-      { label: 'Volunteer', path: '/#volunteer' },
-      { label: 'Donate', path: '/#donate' },
-      { label: 'FAQ', path: '/#faq' },
-      { label: 'Team', path: '/#team' },
+      { label: 'Events', path: '/#events' },
+      { label: 'Membership', path: '/#membership' },
+      { label: 'Contact', path: '/#contact' },
     ],
     []
   )
@@ -98,8 +98,8 @@ const Header: React.FC = () => {
             >
               <Link href="/" onClick={handleLinkClick} className="block">
                 <img
-                  src="https://freeforcharity.org/wp-content/uploads/2024/04/Screenshot_145.png"
-                  alt="Free For Charity"
+                  src={assetPath('/american-legion-emblem.png')}
+                  alt="American Legion Post 245"
                   className={`transition-all duration-300 ${isScrolled ? 'h-7' : 'h-11'}`}
                 />
               </Link>

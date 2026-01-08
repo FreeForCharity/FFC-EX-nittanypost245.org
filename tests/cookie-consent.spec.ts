@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test'
-import { testConfig } from './test.config'
 
 /**
  * Cookie Consent Tests
@@ -10,8 +9,6 @@ import { testConfig } from './test.config'
  * 3. Preferences modal opens and closes properly
  * 4. Selections are saved to localStorage and respected on subsequent visits
  * 5. Modal accessibility (focus management, escape key)
- *
- * Note: Test expectations use values from test.config.ts for easy customization
  */
 
 test.describe('Cookie Consent Banner', () => {
@@ -30,18 +27,12 @@ test.describe('Cookie Consent Banner', () => {
 
     // Verify banner has the correct heading
     const heading = banner.locator('h3')
-    await expect(heading).toHaveText(testConfig.cookieConsent.bannerHeading)
+    await expect(heading).toHaveText('We Value Your Privacy')
 
     // Verify all three buttons are present
-    await expect(
-      banner.getByRole('button', { name: testConfig.cookieConsent.buttons.declineAll })
-    ).toBeVisible()
-    await expect(
-      banner.getByRole('button', { name: testConfig.cookieConsent.buttons.customize })
-    ).toBeVisible()
-    await expect(
-      banner.getByRole('button', { name: testConfig.cookieConsent.buttons.acceptAll })
-    ).toBeVisible()
+    await expect(banner.getByRole('button', { name: 'Decline All' })).toBeVisible()
+    await expect(banner.getByRole('button', { name: 'Customize' })).toBeVisible()
+    await expect(banner.getByRole('button', { name: 'Accept All' })).toBeVisible()
 
     // Verify policy links are present
     await expect(banner.getByRole('link', { name: 'Privacy Policy' })).toBeVisible()
@@ -53,7 +44,7 @@ test.describe('Cookie Consent Banner', () => {
     await expect(banner).toBeVisible()
 
     // Click Accept All
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.acceptAll }).click()
+    await page.getByRole('button', { name: 'Accept All' }).click()
 
     // Banner should be hidden
     await expect(banner).not.toBeVisible()
@@ -64,7 +55,7 @@ test.describe('Cookie Consent Banner', () => {
     await expect(banner).toBeVisible()
 
     // Click Decline All
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.declineAll }).click()
+    await page.getByRole('button', { name: 'Decline All' }).click()
 
     // Banner should be hidden
     await expect(banner).not.toBeVisible()
@@ -74,7 +65,7 @@ test.describe('Cookie Consent Banner', () => {
     page,
   }) => {
     // Accept all cookies
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.acceptAll }).click()
+    await page.getByRole('button', { name: 'Accept All' }).click()
 
     // Reload the page
     await page.reload()
@@ -97,7 +88,7 @@ test.describe('Cookie Consent Banner', () => {
     page,
   }) => {
     // Decline all cookies
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.declineAll }).click()
+    await page.getByRole('button', { name: 'Decline All' }).click()
 
     // Reload the page
     await page.reload()
@@ -128,7 +119,7 @@ test.describe('Cookie Preferences Modal', () => {
 
   test('should open preferences modal when clicking Customize', async ({ page }) => {
     // Click Customize button
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.customize }).click()
+    await page.getByRole('button', { name: 'Customize' }).click()
 
     // Modal should be visible
     const modal = page.locator('[role="dialog"][aria-modal="true"]')
@@ -136,7 +127,7 @@ test.describe('Cookie Preferences Modal', () => {
 
     // Verify modal has the correct heading
     const heading = modal.locator('h2')
-    await expect(heading).toHaveText(testConfig.cookieConsent.modalHeading)
+    await expect(heading).toHaveText('Cookie Preferences')
 
     // Verify cookie category sections are present
     await expect(modal.getByText('Necessary Cookies')).toBeVisible()
@@ -145,23 +136,19 @@ test.describe('Cookie Preferences Modal', () => {
     await expect(modal.getByText('Marketing Cookies')).toBeVisible()
 
     // Verify action buttons are present
-    await expect(
-      modal.getByRole('button', { name: testConfig.cookieConsent.buttons.savePreferences })
-    ).toBeVisible()
-    await expect(
-      modal.getByRole('button', { name: testConfig.cookieConsent.buttons.cancel })
-    ).toBeVisible()
+    await expect(modal.getByRole('button', { name: 'Save Preferences' })).toBeVisible()
+    await expect(modal.getByRole('button', { name: 'Cancel' })).toBeVisible()
   })
 
   test('should close modal when clicking Cancel', async ({ page }) => {
     // Open the preferences modal
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.customize }).click()
+    await page.getByRole('button', { name: 'Customize' }).click()
 
     const modal = page.locator('[role="dialog"][aria-modal="true"]')
     await expect(modal).toBeVisible()
 
     // Click Cancel
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.cancel }).click()
+    await page.getByRole('button', { name: 'Cancel' }).click()
 
     // Modal should be hidden but banner should still be visible
     await expect(modal).not.toBeVisible()
@@ -171,7 +158,7 @@ test.describe('Cookie Preferences Modal', () => {
 
   test('should close modal when pressing Escape key', async ({ page }) => {
     // Open the preferences modal
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.customize }).click()
+    await page.getByRole('button', { name: 'Customize' }).click()
 
     const modal = page.locator('[role="dialog"][aria-modal="true"]')
     await expect(modal).toBeVisible()
@@ -187,7 +174,7 @@ test.describe('Cookie Preferences Modal', () => {
 
   test('should close modal when clicking outside (overlay)', async ({ page }) => {
     // Open the preferences modal
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.customize }).click()
+    await page.getByRole('button', { name: 'Customize' }).click()
 
     const modal = page.locator('[role="dialog"][aria-modal="true"]')
     await expect(modal).toBeVisible()
@@ -205,7 +192,7 @@ test.describe('Cookie Preferences Modal', () => {
     page,
   }) => {
     // Open the preferences modal
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.customize }).click()
+    await page.getByRole('button', { name: 'Customize' }).click()
 
     const modal = page.locator('[role="dialog"][aria-modal="true"]')
     await expect(modal).toBeVisible()
@@ -235,7 +222,7 @@ test.describe('Cookie Preferences Modal', () => {
 
   test('should allow toggling analytics and marketing cookies', async ({ page }) => {
     // Open the preferences modal
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.customize }).click()
+    await page.getByRole('button', { name: 'Customize' }).click()
 
     const modal = page.locator('[role="dialog"][aria-modal="true"]')
     await expect(modal).toBeVisible()
@@ -259,7 +246,7 @@ test.describe('Cookie Preferences Modal', () => {
 
   test('should save custom preferences correctly', async ({ page }) => {
     // Open the preferences modal
-    await page.getByRole('button', { name: testConfig.cookieConsent.buttons.customize }).click()
+    await page.getByRole('button', { name: 'Customize' }).click()
 
     const modal = page.locator('[role="dialog"][aria-modal="true"]')
     await expect(modal).toBeVisible()
@@ -270,9 +257,7 @@ test.describe('Cookie Preferences Modal', () => {
     await expect(analyticsToggle).toBeChecked()
 
     // Save preferences
-    await page
-      .getByRole('button', { name: testConfig.cookieConsent.buttons.savePreferences })
-      .click()
+    await page.getByRole('button', { name: 'Save Preferences' }).click()
 
     // Modal and banner should be hidden
     await expect(modal).not.toBeVisible()
