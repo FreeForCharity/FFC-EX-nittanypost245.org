@@ -5,11 +5,11 @@ import { test, expect } from '@playwright/test'
  *
  * These tests verify that:
  * 1. Social media links are present and functional for American Legion Post 245
- * 2. Active social platforms (Facebook, Twitter) work correctly
+ * 2. Active social platforms (Facebook, Twitter, GitHub) work correctly
  */
 
 test.describe('Footer Social Links', () => {
-  test('should display active Facebook and Twitter links', async ({ page }) => {
+  test('should display active Facebook, Twitter, and GitHub links', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/')
 
@@ -20,16 +20,20 @@ test.describe('Footer Social Links', () => {
     // Verify Twitter/X link is present
     const twitterLink = page.locator('footer a[aria-label="X (Twitter)"]')
     await expect(twitterLink).toBeVisible()
+
+    // Verify GitHub link is present
+    const githubLink = page.locator('footer a[aria-label="GitHub"]')
+    await expect(githubLink).toBeVisible()
   })
 
   test('should have social media icons in footer', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/')
 
-    // Count social media links in footer (Facebook, Twitter, and possibly Instagram/YouTube if active)
+    // Count social media links in footer (Facebook, Twitter, GitHub, and possibly Instagram/YouTube if active)
     const socialLinks = await page.locator('footer a[aria-label]').count()
 
-    // Should have at least 2 social links (Facebook and Twitter)
-    expect(socialLinks).toBeGreaterThanOrEqual(2)
+    // Should have at least 3 social links (Facebook, Twitter, and GitHub)
+    expect(socialLinks).toBeGreaterThanOrEqual(3)
   })
 })
