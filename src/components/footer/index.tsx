@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import ZeffyDonateButton from '@/components/donate/zeffy-donate-button'
 
-import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 
 const Footer: React.FC = () => {
@@ -18,6 +18,12 @@ const Footer: React.FC = () => {
       active: true,
     },
     { icon: FaXTwitter, href: 'https://x.com/ALPost245', label: 'X (Twitter)', active: true },
+    {
+      icon: FaGithub,
+      href: 'https://github.com/FreeForCharity/FFC-EX-nittanypost245.org',
+      label: 'GitHub',
+      active: true,
+    },
     {
       icon: FaInstagram,
       href: '#',
