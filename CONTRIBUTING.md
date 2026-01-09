@@ -180,7 +180,7 @@ Test the application thoroughly across multiple dimensions:
 
 - Navigate through all sections of the homepage
 - Test the navigation menu (both desktop and mobile)
-- Try the Donate and Volunteer CTAs (if enabled)
+- Try the Donate CTA (header and footer) and confirm the Zeffy modal opens; try any Volunteer CTA (if present)
 - Explore all policy pages (Privacy Policy, Terms, etc.)
 - Test all interactive elements (buttons, links, forms)
 

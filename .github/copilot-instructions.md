@@ -57,7 +57,7 @@ npm run preview
 
 1. **Homepage Load Test**: Navigate to http://localhost:3000 and verify page loads completely
 2. **Navigation Test**: Test mobile hamburger menu and desktop navigation
-3. **Popup System Test**: Click "Donate" and "Volunteer" buttons to test global popup functionality
+3. **Donation Modal Test**: Click "Donate" in the header and footer to verify the Zeffy modal opens
 4. **Responsive Design Test**: Verify mobile and desktop layouts work correctly
 5. **Static Content Test**: Verify all sections load (Programs, Impact, Team, FAQ)
 6. **Logo Rendering Test**: Verify logos display correctly in NavBar (top left) and hero section
@@ -110,10 +110,10 @@ npm test     # Run automated tests (requires build first)
 
 ### Key Features
 
-- **Global Popup System**: Centralized Donate/Volunteer modals accessible from any component
-  - Provider: `src/app/components/PopupProvider.tsx`
-  - Mount: `src/app/components/PopupsRootClient.tsx`
-  - Buttons: `DonateButton.tsx`, `VolunteerButton.tsx`
+- **Zeffy Donation Modal**: Donate buttons open an embedded Zeffy donation form modal
+  - Script loaded in `src/app/layout.tsx` (`embed-form-script.min.js`)
+  - Button attribute: `zeffy-form-link="https://www.zeffy.com/embed/donation-form/general-american-legion-post-245-fund?modal=true"`
+  - Button component: `src/components/donate/zeffy-donate-button.tsx`
 - **Mobile Navigation**: Slide-out panel with overlay in `NavBar.tsx`
 - **Static Export**: Configured for GitHub Pages deployment via `next.config.ts`
 - **SEO Optimized**: Comprehensive metadata in `layout.tsx`, sitemap, and robots.txt

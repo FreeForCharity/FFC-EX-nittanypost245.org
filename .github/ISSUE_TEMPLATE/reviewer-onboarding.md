@@ -20,7 +20,7 @@ Please check all areas you reviewed:
 
 - [ ] Homepage and overall layout
 - [ ] Navigation (desktop and mobile)
-- [ ] Donate and Volunteer CTAs/popups
+- [ ] Donate CTA (Zeffy modal) and any Volunteer CTA (if present)
 - [ ] Program information sections
 - [ ] Team section
 - [ ] FAQ section
