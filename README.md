@@ -81,7 +81,8 @@ The site is live and fully functional with the following features:
 
 ⚠️ **Known Limitations:**
 
-- Global Donate and Volunteer popups present in codebase but currently commented out in `layout.tsx`
+- Legacy Donate/Volunteer popup infrastructure is present in the codebase but currently commented out in `layout.tsx`
+- Donations are handled via Zeffy: the Donate button in the header and footer opens a Zeffy modal
 - 6 placeholder links remain in non-critical locations:
   - 2 program application CTAs in "Ready to Get Started Now?" section (501c3 and Pre-501c3 onboarding links)
   - 4 informational links in onboarding documentation (domain management and contact references)
@@ -90,7 +91,7 @@ The site is live and fully functional with the following features:
 
 ## Overview
 
-This is a single-page website with **100+ component files** organized into multiple sections that showcase Free For Charity's programs, services, and resources. The homepage is composed of scrollable sections (Hero, Mission, Programs, Team, FAQ, etc.), with 7 additional policy pages for legal content. The site includes a global popup system for donations and volunteer signups (codebase includes the infrastructure, though the popups are currently commented out in `layout.tsx`).
+This is a single-page website with **100+ component files** organized into multiple sections that showcase Free For Charity's programs, services, and resources. The homepage is composed of scrollable sections (Hero, Mission, Programs, Team, FAQ, etc.), with 7 additional policy pages for legal content. Donations are handled via a Zeffy embedded modal opened from Donate buttons in the header and footer.
 
 ### Site Structure
 
@@ -396,7 +397,8 @@ The following enhancements could further improve the test suite:
 **Note:**
 
 - This is a single-page application where all main content is displayed on one scrollable page with navigation anchors
-- Global Donate/Volunteer popup system is present in codebase but currently commented out in `layout.tsx`
+- Donations are handled via Zeffy: Donate buttons in header/footer open a Zeffy modal
+- Legacy Donate/Volunteer popup infrastructure is present in the codebase but currently commented out in `layout.tsx`
 - Components are organized by feature/section but rendered within the single homepage
 
 ## Project Structure

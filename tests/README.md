@@ -420,9 +420,9 @@ When tests fail in CI:
    - Validate smooth scrolling to sections
 
 2. **Form Tests**
-   - Test donation popup form
-   - Test volunteer popup form
-   - Validate form validation
+   - Test Zeffy donation modal (Donate buttons in header/footer)
+   - Test any volunteer CTA/modal (if present)
+   - Validate any form validation (if applicable)
 
 3. **Responsive Tests**
    - Test mobile viewport (375px)

@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Repository synced from `FreeForCharity/FFC-EX-legioninthewoods.org` and deployed to https://nittanypost245.org (Issue #4, PR #5)
 
+- Zeffy donation modal embed via Donate buttons in header and footer (Issue #35, PR #36)
+
 - Community health files for better GitHub integration
   - SUPPORT.md for support resources
   - .github/FUNDING.yml for sponsorship information

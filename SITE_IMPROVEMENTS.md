@@ -463,7 +463,7 @@ module.exports = createJestConfig(customJestConfig)
 - Header/Navigation component
 - Footer component
 - Cookie consent banner
-- Donation/Volunteer popup system
+- Donation flow (Zeffy modal via Donate buttons) and any Volunteer CTA/modal (if present)
 
 **Phase 2 - Utility Functions (Priority 2):**
 
