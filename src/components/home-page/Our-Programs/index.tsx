@@ -92,6 +92,26 @@ const OurPrograms = () => {
             etiquette materials.
           </p>
         </div>
+
+        <div className="mt-[60px]">
+          <div className="lg:pl-[50px] mb-[40px]  flex items-center gap-[20px]">
+            <div className="w-[100px] flex items-center justify-center p-2 h-[100px] bg-[#002D62] rounded-full">
+              <div className="relative w-[56px] h-[56px]">
+                <Image src="/Svgs/national-security.svg" alt="National Security" fill></Image>
+              </div>
+            </div>
+            <h1 className="text-[36px] font-[400]  " id="lato-font">
+              National Security
+            </h1>
+          </div>
+          <p className="text-[25px] font-[400] mb-[30px]" id="lato-font">
+            The Legion is an organization of veterans who fought for freedoms, which they are
+            dedicated to keeping and preserving. As one of the Four Pillars it was founded on, the
+            Legion believes national security is upheld by keeping a well-funded Department of
+            Defense, a good quality of life for troops and a sensible transition between service and
+            separation.
+          </p>
+        </div>
       </div>
 
       <div className="w-[95%] mt-[50px] mx-auto border border-[#002D62]"></div>
