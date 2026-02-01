@@ -7,6 +7,7 @@ import { RxCross2 } from 'react-icons/rx'
 import { motion, AnimatePresence } from 'framer-motion'
 import { assetPath } from '@/lib/assetPath'
 import ZeffyDonateButton from '@/components/donate/zeffy-donate-button'
+import ZeffyFishChipsButton from '@/components/donate/zeffy-fish-chips-button'
 
 interface MenuItem {
   label: string
@@ -130,8 +131,11 @@ const Header: React.FC = () => {
                 </ul>
               </nav>
 
-              {/* Donate Button (replaces search icon) */}
-              <div className="hidden lg:flex items-center">
+              {/* Action Buttons */}
+              <div className="hidden lg:flex items-center gap-2">
+                <ZeffyFishChipsButton className="px-3 py-2 text-[14px] font-navbar font-[600] text-white bg-[#BF0D3E] hover:bg-[#FFD700] hover:text-[#002D62] rounded transition-all">
+                  🐟 Order Fish & Chips
+                </ZeffyFishChipsButton>
                 <ZeffyDonateButton className="px-3 py-2 text-[14px] font-navbar font-[600] text-gray-600 hover:text-blue-600 transition-colors" />
               </div>
 
@@ -184,6 +188,13 @@ const Header: React.FC = () => {
                   </li>
                 ))}
               </ul>
+              {/* Mobile Action Buttons */}
+              <div className="mt-4 space-y-2">
+                <ZeffyFishChipsButton className="block w-full text-center px-4 py-3 bg-[#BF0D3E] text-white rounded-lg text-sm font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all">
+                  🐟 Order Fish & Chips
+                </ZeffyFishChipsButton>
+                <ZeffyDonateButton className="block w-full text-center px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-[600] hover:bg-blue-700 transition-all" />
+              </div>
             </div>
           </motion.div>
         )}

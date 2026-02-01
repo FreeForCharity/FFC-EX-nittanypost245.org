@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import ZeffyDonateButton from '@/components/donate/zeffy-donate-button'
+import ZeffyFishChipsButton from '@/components/donate/zeffy-fish-chips-button'
 
 import { FaFacebookF, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -85,6 +86,12 @@ const Footer: React.FC = () => {
               </li>
             ))}
           </ul>
+
+          <div className="space-y-2">
+            <ZeffyFishChipsButton className="inline-flex items-center justify-center text-[16px] font-[600] hover:text-[#FFD700] hover:tracking-widest transition-all">
+              🐟 Order Fish & Chips
+            </ZeffyFishChipsButton>
+          </div>
 
           <ZeffyDonateButton className="inline-flex items-center justify-center text-[16px] font-[500] hover:text-[#F58C23] hover:tracking-widest transition-all" />
 
