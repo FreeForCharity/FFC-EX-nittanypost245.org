@@ -23,12 +23,23 @@ const Events = () => {
             <h3 className="text-[24px] font-[600] mb-3 text-[#002D62]" id="lato-font">
               Post Meetings
             </h3>
-            <p className="text-[18px] font-[400] mb-2" id="lato-font">
-              Regular monthly meetings for members
-            </p>
-            <p className="text-[16px] text-gray-600" id="lato-font">
-              Contact the post for current meeting schedule
-            </p>
+            <div className="space-y-2">
+              <p className="text-[16px] font-[400]" id="lato-font">
+                <strong>Post Meeting:</strong> 1900 on the 3rd Thursday of the month
+              </p>
+              <p className="text-[16px] font-[400]" id="lato-font">
+                <strong>Sons of the American Legion Meeting:</strong> 1800 on the 3rd Thursday of
+                the month
+              </p>
+              <p className="text-[16px] font-[400]" id="lato-font">
+                <strong>American Legion Auxiliary Meeting:</strong> 1800 on the 4th Tuesday of the
+                month
+              </p>
+              <p className="text-[16px] font-[400]" id="lato-font">
+                <strong>American Legion Riders Meeting:</strong> 1800 on the 1st Thursday of the
+                month
+              </p>
+            </div>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#BF0D3E]">

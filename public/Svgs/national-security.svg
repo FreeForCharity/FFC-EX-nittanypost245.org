@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Shield icon representing national security and defense -->
+  <path d="M100 30 L150 50 L150 90 C150 120 135 145 100 165 C65 145 50 120 50 90 L50 50 Z" fill="#FFD700" stroke="#002D62" stroke-width="3"/>
+  <path d="M100 50 L130 65 L130 95 C130 115 120 130 100 145 C80 130 70 115 70 95 L70 65 Z" fill="#002D62"/>
+  <path d="M85 90 L95 100 L115 80" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
