@@ -7,7 +7,7 @@ interface TeamMemberCardProps {
   imageUrl: string
   name: string
   title: string
-  linkedinUrl: string
+  linkedinUrl?: string
 }
 
 export default function TeamMemberCard({
@@ -42,9 +42,11 @@ export default function TeamMemberCard({
         </div>
 
         {/* LinkedIn Button */}
-        <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="mt-6">
-          <Image src="/Svgs/linkedin-icon.svg" width={63} height={63} alt="linkedin icon"></Image>
-        </a>
+        {linkedinUrl && (
+          <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="mt-6">
+            <Image src="/Svgs/linkedin-icon.svg" width={63} height={63} alt="linkedin icon"></Image>
+          </a>
+        )}
       </div>
 
       {/* Optional: Add global styles if needed */}

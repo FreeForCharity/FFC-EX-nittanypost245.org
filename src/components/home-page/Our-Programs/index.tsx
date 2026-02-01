@@ -71,7 +71,16 @@ const OurPrograms = () => {
           </div>
           <p className="text-[25px] font-[400] mb-[30px]" id="lato-font">
             Developing future leaders through Boys State, American Legion Baseball, Junior Shooting
-            Sports, Boy Scouts, and scholarship opportunities.
+            Sports,{' '}
+            <a
+              href="https://www.facebook.com/Troop245StateCollegePA/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#D84309] hover:underline"
+            >
+              Boy Scouts
+            </a>
+            , and scholarship opportunities.
           </p>
         </div>
 

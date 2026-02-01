@@ -17,44 +17,41 @@ const PostLeadership = () => {
       <div className="w-[90%] mx-auto py-[40px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  items-stretch justify-center mb-[50px] gap-[30px]">
           <TeamMemberCard
-            imageUrl={PLACEHOLDER_IMAGE}
-            name="Post Commander"
-            title="Placeholder - Add Commander Name & Photo"
-            linkedinUrl="#"
+            imageUrl={assetPath('/Images/dj-watkins.webp')}
+            name="D.J. Watkins"
+            title="Post Commander"
+            linkedinUrl="https://www.linkedin.com/in/dj-watkins/"
           />
           <TeamMemberCard
             imageUrl={PLACEHOLDER_IMAGE}
-            name="First Vice Commander"
-            title="Placeholder - Add 1st Vice Commander Name & Photo"
-            linkedinUrl="#"
+            name="Tom Palchak"
+            title="First Vice Commander"
+            linkedinUrl="https://www.linkedin.com/in/thomas-palchak-21b100a3/"
           />
           <TeamMemberCard
-            imageUrl={PLACEHOLDER_IMAGE}
-            name="Second Vice Commander"
-            title="Placeholder - Add 2nd Vice Commander Name & Photo"
-            linkedinUrl="#"
+            imageUrl={assetPath('/Images/rich-jackson.webp')}
+            name="Rich Jackson"
+            title="Second Vice Commander"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center mt-[40px] gap-[30px]">
           <TeamMemberCard
-            imageUrl={PLACEHOLDER_IMAGE}
-            name="Adjutant"
-            title="Placeholder - Add Adjutant Name & Photo"
-            linkedinUrl="#"
+            imageUrl={assetPath('/Images/larry-hess.webp')}
+            name="Larry Hess"
+            title="Adjutant"
           />
           <TeamMemberCard
-            imageUrl={PLACEHOLDER_IMAGE}
-            name="Finance Officer"
-            title="Placeholder - Add Finance Officer Name & Photo"
-            linkedinUrl="#"
+            imageUrl={assetPath('/Images/chris-solo.webp')}
+            name="Chris Solo"
+            title="Finance Officer"
           />
         </div>
         <div className="mt-8 text-center">
           <p className="text-[18px] text-gray-600 max-w-3xl mx-auto" id="lato-font">
-            <strong>Note to Post Leadership:</strong> Please replace placeholder images and names
-            with actual Post 245 officer information. Include photos, names, titles, and optional
-            LinkedIn profiles or email contacts. Consider adding Service Officer, Chaplain,
-            Sergeant-at-Arms, and other key positions.
+            <strong>Note to Post Leadership:</strong> The Post 245 leadership information has been
+            updated with current officers. To update photos or LinkedIn profiles, please contact the
+            web team. Consider adding additional positions such as Service Officer, Chaplain,
+            Sergeant-at-Arms, and other key positions as needed.
           </p>
         </div>
       </div>
