@@ -22,8 +22,13 @@ const Events = () => {
         {/* Fish & Chips Ordering - Highlighted */}
         <div className="bg-gradient-to-r from-[#002D62] to-[#BF0D3E] p-8 rounded-lg shadow-lg mb-8">
           <div className="text-center text-white">
-            <h3 className="text-[32px] font-[700] mb-4" id="lato-font">
-              🐟 Lent Friday Fish Fry 🐟
+            <h3
+              className="text-[32px] font-[700] mb-4"
+              id="lato-font"
+              aria-label="Lent Friday Fish Fry"
+            >
+              <span aria-hidden="true">🐟</span> Lent Friday Fish Fry{' '}
+              <span aria-hidden="true">🐟</span>
             </h3>
             <p className="text-[20px] font-[400] mb-6" id="lato-font">
               Order delicious fish and chips for our Lent Friday fundraiser!

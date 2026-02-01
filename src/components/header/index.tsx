@@ -133,8 +133,11 @@ const Header: React.FC = () => {
 
               {/* Action Buttons */}
               <div className="hidden lg:flex items-center gap-2">
-                <ZeffyFishChipsButton className="px-3 py-2 text-[14px] font-navbar font-[600] text-white bg-[#BF0D3E] hover:bg-[#FFD700] hover:text-[#002D62] rounded transition-all">
-                  🐟 Order Fish & Chips
+                <ZeffyFishChipsButton
+                  className="px-3 py-2 text-[14px] font-navbar font-[600] text-white bg-[#BF0D3E] hover:bg-[#FFD700] hover:text-[#002D62] rounded transition-all"
+                  ariaLabel="Order Fish and Chips for Lent Friday Fish Fry"
+                >
+                  <span aria-hidden="true">🐟</span> Order Fish & Chips
                 </ZeffyFishChipsButton>
                 <ZeffyDonateButton className="px-3 py-2 text-[14px] font-navbar font-[600] text-gray-600 hover:text-blue-600 transition-colors" />
               </div>
@@ -190,8 +193,11 @@ const Header: React.FC = () => {
               </ul>
               {/* Mobile Action Buttons */}
               <div className="mt-4 space-y-2">
-                <ZeffyFishChipsButton className="block w-full text-center px-4 py-3 bg-[#BF0D3E] text-white rounded-lg text-sm font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all">
-                  🐟 Order Fish & Chips
+                <ZeffyFishChipsButton
+                  className="block w-full text-center px-4 py-3 bg-[#BF0D3E] text-white rounded-lg text-sm font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all"
+                  ariaLabel="Order Fish and Chips for Lent Friday Fish Fry"
+                >
+                  <span aria-hidden="true">🐟</span> Order Fish & Chips
                 </ZeffyFishChipsButton>
                 <ZeffyDonateButton className="block w-full text-center px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-[600] hover:bg-blue-700 transition-all" />
               </div>

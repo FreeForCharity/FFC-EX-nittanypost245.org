@@ -88,8 +88,11 @@ const Footer: React.FC = () => {
           </ul>
 
           <div className="space-y-2">
-            <ZeffyFishChipsButton className="inline-flex items-center justify-center text-[16px] font-[600] hover:text-[#FFD700] hover:tracking-widest transition-all">
-              🐟 Order Fish & Chips
+            <ZeffyFishChipsButton
+              className="inline-flex items-center justify-center text-[16px] font-[600] hover:text-[#FFD700] hover:tracking-widest transition-all"
+              ariaLabel="Order Fish and Chips for Lent Friday Fish Fry"
+            >
+              <span aria-hidden="true">🐟</span> Order Fish & Chips
             </ZeffyFishChipsButton>
           </div>
 
