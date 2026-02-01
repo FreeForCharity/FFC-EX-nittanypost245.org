@@ -42,10 +42,10 @@ test.describe('Membership Pages', () => {
   test('should load Veteran Class A membership page', async ({ page }) => {
     await page.goto('/membership/veteran-class-a')
 
-    // Verify unique page content
-    await expect(page.locator('text=Eligibility Requirements')).toBeVisible()
-    await expect(page.locator('text=Membership Benefits')).toBeVisible()
-    await expect(page.locator('text=Ready to Join?')).toBeVisible()
+    // Verify unique page content using heading selectors to avoid duplicates
+    await expect(page.getByRole('heading', { name: 'Eligibility Requirements' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Membership Benefits' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Ready to Join?' })).toBeVisible()
 
     // Verify back link
     const backLink = page.locator('a:has-text("Back to Membership")')
@@ -69,10 +69,10 @@ test.describe('Membership Pages', () => {
   test('should load S.A.L. Squadron 245 membership page', async ({ page }) => {
     await page.goto('/membership/squadron-245')
 
-    // Verify unique page content
-    await expect(page.locator('text=Sons of The American Legion')).toBeVisible()
-    await expect(page.locator('text=Activities & Programs')).toBeVisible()
-    await expect(page.locator('text=Join Squadron 245')).toBeVisible()
+    // Verify unique page content using headings to avoid duplicates
+    await expect(page.getByRole('heading', { name: /About Sons of The American/ })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Activities & Programs' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Join Squadron 245' })).toBeVisible()
 
     // Verify back link
     const backLink = page.locator('a:has-text("Back to Membership")')
@@ -82,10 +82,10 @@ test.describe('Membership Pages', () => {
   test('should load Social membership page', async ({ page }) => {
     await page.goto('/membership/post-245-inc')
 
-    // Verify unique page content
-    await expect(page.locator('text=About Social Membership')).toBeVisible()
-    await expect(page.locator('text=Who Can Join')).toBeVisible()
-    await expect(page.locator('text=Become a Social Member')).toBeVisible()
+    // Verify unique page content using headings to avoid duplicates
+    await expect(page.getByRole('heading', { name: 'About Social Membership' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Who Can Join' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Become a Social Member' })).toBeVisible()
 
     // Verify back link
     const backLink = page.locator('a:has-text("Back to Membership")')

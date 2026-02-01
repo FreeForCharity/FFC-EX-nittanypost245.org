@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
-    "preview": "npx serve -s out -l 3000",
+    "build": "next build && cp serve.json out/serve.json",
+    "preview": "npx serve out -l 3000",
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
