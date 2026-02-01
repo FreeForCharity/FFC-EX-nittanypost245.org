@@ -68,4 +68,27 @@ test.describe('Events Section', () => {
     const eventsSection = page.locator('#events')
     await expect(eventsSection).toBeVisible()
   })
+
+  test('should have Fish & Chips ordering CTA with correct Zeffy link', async ({ page }) => {
+    // Navigate to the homepage
+    await page.goto('/')
+
+    const eventsSection = page.locator('#events')
+    await expect(eventsSection).toBeVisible()
+
+    // Find the Fish & Chips ordering link
+    const fishChipsLink = eventsSection.getByRole('link', {
+      name: /Order Fish.*Chips/i,
+    })
+    await expect(fishChipsLink).toBeVisible()
+
+    // Verify it points to the correct Zeffy URL
+    await expect(fishChipsLink).toHaveAttribute(
+      'href',
+      'https://www.zeffy.com/en-US/ticketing/lent-friday-fish-fry'
+    )
+
+    // Verify it opens in a new tab
+    await expect(fishChipsLink).toHaveAttribute('target', '_blank')
+  })
 })

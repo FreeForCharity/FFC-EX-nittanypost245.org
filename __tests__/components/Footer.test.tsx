@@ -54,6 +54,18 @@ describe('Footer component', () => {
     expect(emailLink).toBeDefined()
   })
 
+  it('should have Fish & Chips ordering link', () => {
+    render(<Footer />)
+    const fishChipsLink = screen.getByRole('link', {
+      name: /Order Fish and Chips for Lent Friday Fish Fry/i,
+    })
+    expect(fishChipsLink).toBeInTheDocument()
+    expect(fishChipsLink).toHaveAttribute(
+      'href',
+      'https://www.zeffy.com/en-US/ticketing/lent-friday-fish-fry'
+    )
+  })
+
   it('should not have accessibility violations', async () => {
     const { container } = render(<Footer />)
     const results = await axe(container)

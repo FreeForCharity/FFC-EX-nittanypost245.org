@@ -196,10 +196,14 @@ const Header: React.FC = () => {
                 <ZeffyFishChipsButton
                   className="block w-full text-center px-4 py-3 bg-[#BF0D3E] text-white rounded-lg text-sm font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all"
                   ariaLabel="Order Fish and Chips for Lent Friday Fish Fry"
+                  onClick={handleLinkClick}
                 >
                   <span aria-hidden="true">🐟</span> Order Fish & Chips
                 </ZeffyFishChipsButton>
-                <ZeffyDonateButton className="block w-full text-center px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-[600] hover:bg-blue-700 transition-all" />
+                <ZeffyDonateButton
+                  className="block w-full text-center px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-[600] hover:bg-blue-700 transition-all"
+                  onClick={handleLinkClick}
+                />
               </div>
             </div>
           </motion.div>
