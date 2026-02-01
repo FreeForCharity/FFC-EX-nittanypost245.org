@@ -28,7 +28,7 @@ const Events = () => {
                 <strong>Post Meeting:</strong> 1900 on the 3rd Thursday of the month
               </p>
               <p className="text-[16px] font-[400]" id="lato-font">
-                <strong>Sons of the American Legion Meeting:</strong> 1800 on the third Thursday of
+                <strong>Sons of the American Legion Meeting:</strong> 1800 on the 3rd Thursday of
                 the month
               </p>
               <p className="text-[16px] font-[400]" id="lato-font">
@@ -36,7 +36,7 @@ const Events = () => {
                 month
               </p>
               <p className="text-[16px] font-[400]" id="lato-font">
-                <strong>American Legion Riders Meeting:</strong> 1800 on the first Thursday of the
+                <strong>American Legion Riders Meeting:</strong> 1800 on the 1st Thursday of the
                 month
               </p>
             </div>
