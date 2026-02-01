@@ -17,7 +17,7 @@ const PostLeadership = () => {
       <div className="w-[90%] mx-auto py-[40px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  items-stretch justify-center mb-[50px] gap-[30px]">
           <TeamMemberCard
-            imageUrl={assetPath('/Images/dj-watkins.jpg')}
+            imageUrl={assetPath('/Images/dj-watkins.webp')}
             name="D.J. Watkins"
             title="Post Commander"
             linkedinUrl="https://www.linkedin.com/in/dj-watkins/"
@@ -29,24 +29,21 @@ const PostLeadership = () => {
             linkedinUrl="https://www.linkedin.com/in/thomas-palchak-21b100a3/"
           />
           <TeamMemberCard
-            imageUrl={assetPath('/Images/rich-jackson.jpg')}
+            imageUrl={assetPath('/Images/rich-jackson.webp')}
             name="Rich Jackson"
             title="Second Vice Commander"
-            linkedinUrl="#"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center mt-[40px] gap-[30px]">
           <TeamMemberCard
-            imageUrl={assetPath('/Images/larry-hess.jpg')}
+            imageUrl={assetPath('/Images/larry-hess.webp')}
             name="Larry Hess"
             title="Adjutant"
-            linkedinUrl="#"
           />
           <TeamMemberCard
-            imageUrl={assetPath('/Images/chris-solo.jpg')}
+            imageUrl={assetPath('/Images/chris-solo.webp')}
             name="Chris Solo"
             title="Finance Officer"
-            linkedinUrl="#"
           />
         </div>
         <div className="mt-8 text-center">
