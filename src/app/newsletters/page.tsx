@@ -31,7 +31,9 @@ export default function NewslettersPage() {
               className="bg-white border-2 border-gray-200 rounded-lg p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:border-blue-600 hover:shadow-lg transition-all duration-300"
             >
               <div>
-                <div className="text-3xl mb-2">📰</div>
+                <div className="text-3xl mb-2" aria-hidden="true">
+                  📰
+                </div>
                 <h2 className="text-[20px] text-[#333] font-[700] mb-1">{newsletter.title}</h2>
                 <p className="text-[14px] text-[#666] font-[500]">{newsletter.period}</p>
               </div>
@@ -54,7 +56,7 @@ export default function NewslettersPage() {
             Want to receive our newsletter or have questions?
           </p>
           <a
-            href="/#contact"
+            href={assetPath('/#contact')}
             className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-[600] hover:bg-blue-700 transition-colors"
           >
             Contact Us
