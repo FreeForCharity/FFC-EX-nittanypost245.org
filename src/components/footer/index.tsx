@@ -103,6 +103,14 @@ const Footer: React.FC = () => {
             <ul className="space-y-1 text-sm" id="lato-font">
               {[
                 {
+                  name: 'Newsletters',
+                  href: '/newsletters',
+                },
+                {
+                  name: 'Meeting Minutes',
+                  href: '/meeting-minutes',
+                },
+                {
                   name: 'Privacy Policy',
                   href: '/privacy-policy',
                 },
