@@ -50,7 +50,7 @@ As always, please reach out to Commander DJ Watkins directly with any questions.
 
 For God and Country,
 
-**[Sign-off Placeholder]**
+**[Sign-off Placeholder — replace with your preferred closing, e.g., "For God and Country"]**
 Commander D.J. Watkins
 Nittany American Legion Post 245 – The Legion in the Woods
 State College, PA | [nittanypost245.org](https://nittanypost245.org) | [info@nittanypost245.org](mailto:info@nittanypost245.org)

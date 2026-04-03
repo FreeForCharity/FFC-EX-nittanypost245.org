@@ -92,7 +92,10 @@ export default function MeetingMinutes202603Page() {
                 {section.heading}
               </h2>
               {section.content.split('\n\n').map((paragraph, idx) => (
-                <p key={idx} className="text-[15px] text-[#555] leading-[26px] font-[400] mb-3">
+                <p
+                  key={`${section.heading}-${idx}`}
+                  className="text-[15px] text-[#555] leading-[26px] font-[400] mb-3"
+                >
                   {paragraph}
                 </p>
               ))}
