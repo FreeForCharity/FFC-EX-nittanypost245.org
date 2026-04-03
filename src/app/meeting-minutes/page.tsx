@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { meetingMinutes } from '@/data/meetingMinutes'
+import { meetingMinutes } from '@/data/meeting-minutes'
 import { assetPath } from '@/lib/assetPath'
 
 export const metadata: Metadata = {
