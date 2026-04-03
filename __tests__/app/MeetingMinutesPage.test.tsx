@@ -24,10 +24,19 @@ describe('MeetingMinutesPage', () => {
     ).toBeInTheDocument()
   })
 
+  it('should have a view minutes link for the March 2026 meeting minutes', () => {
+    render(<MeetingMinutesPage />)
+    const link = screen.getByRole('link', {
+      name: /View.*March 2026.*online/i,
+    })
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('href', expect.stringContaining('/meeting-minutes/2026-03'))
+  })
+
   it('should have a download link for the March 2026 meeting minutes', () => {
     render(<MeetingMinutesPage />)
     const link = screen.getByRole('link', {
-      name: /Download or view.*March 2026.*PDF/i,
+      name: /Download.*March 2026.*PDF/i,
     })
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('href', expect.stringContaining('post-meeting-minutes-202603.pdf'))
@@ -39,7 +48,7 @@ describe('MeetingMinutesPage', () => {
     render(<MeetingMinutesPage />)
     const contactLink = screen.getByRole('link', { name: /Contact Us/i })
     expect(contactLink).toBeInTheDocument()
-    expect(contactLink).toHaveAttribute('href', '/#contact')
+    expect(contactLink).toHaveAttribute('href', expect.stringMatching(/#contact$/))
   })
 
   it('should not have accessibility violations', async () => {

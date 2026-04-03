@@ -24,13 +24,23 @@ test.describe('Meeting Minutes Page', () => {
     await expect(page.getByText('March 2026', { exact: true })).toBeVisible()
   })
 
+  test('should have a view minutes link linking to the individual page', async ({ page }) => {
+    await page.goto('/meeting-minutes')
+
+    const viewLink = page.getByRole('link', { name: /View.*March 2026.*online/i })
+    await expect(viewLink).toBeVisible()
+
+    const href = await viewLink.getAttribute('href')
+    expect(href).toContain('/meeting-minutes/2026-03')
+  })
+
   test('should have a working download link for the March 2026 meeting minutes', async ({
     page,
   }) => {
     await page.goto('/meeting-minutes')
 
     const downloadLink = page.getByRole('link', {
-      name: /Download or view.*March 2026.*PDF/i,
+      name: /Download.*March 2026.*PDF/i,
     })
     await expect(downloadLink).toBeVisible()
 
@@ -43,9 +53,12 @@ test.describe('Meeting Minutes Page', () => {
   test('should navigate to meeting minutes page from header', async ({ page }) => {
     await page.goto('/')
 
-    await page.click('header a[href="/meeting-minutes"]')
+    await page
+      .locator('header')
+      .getByRole('link', { name: /Meeting Minutes/i })
+      .click()
 
-    await expect(page).toHaveURL('/meeting-minutes')
+    await expect(page).toHaveURL(/\/meeting-minutes$/)
     await expect(page.getByRole('heading', { name: 'Meeting Minutes', level: 1 })).toBeVisible()
   })
 
@@ -54,7 +67,7 @@ test.describe('Meeting Minutes Page', () => {
 
     const contactLink = page.getByRole('link', { name: /Contact Us/i })
     await expect(contactLink).toBeVisible()
-    await expect(contactLink).toHaveAttribute('href', '/#contact')
+    await expect(contactLink).toHaveAttribute('href', /#contact$/)
   })
 
   test('should display correct page metadata', async ({ page }) => {

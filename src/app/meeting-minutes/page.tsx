@@ -18,36 +18,50 @@ export default function MeetingMinutesPage() {
             Meeting Minutes
           </h1>
           <p className="text-[16px] md:text-[18px] text-[#666] leading-[28px] font-[500] max-w-[800px]">
-            Official minutes from American Legion Post 245 meetings. Download or view the minutes
-            below.
+            Official minutes from American Legion Post 245 meetings. View online or download the
+            minutes below.
           </p>
         </div>
 
         {/* Meeting Minutes List */}
         <div className="space-y-6">
-          {meetingMinutes.map((minutes) => (
-            <div
-              key={minutes.filename}
-              className="bg-white border-2 border-gray-200 rounded-lg p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:border-blue-600 hover:shadow-lg transition-all duration-300"
-            >
-              <div>
-                <div className="text-3xl mb-2" aria-hidden="true">
-                  📋
-                </div>
-                <h2 className="text-[20px] text-[#333] font-[700] mb-1">{minutes.title}</h2>
-                <p className="text-[14px] text-[#666] font-[500]">{minutes.meetingDate}</p>
-              </div>
-              <a
-                href={assetPath(`/documents/${minutes.filename}`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-[600] text-[14px] hover:bg-blue-700 transition-colors whitespace-nowrap"
-                aria-label={`Download or view ${minutes.title} (PDF)`}
+          {meetingMinutes.map((minutes) => {
+            const minutesPageHref = assetPath(`/meeting-minutes/${minutes.slug}`)
+            const pdfHref = assetPath(`/documents/${minutes.filename}`)
+
+            return (
+              <div
+                key={minutes.filename}
+                className="bg-white border-2 border-gray-200 rounded-lg p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:border-blue-600 hover:shadow-lg transition-all duration-300"
               >
-                <span aria-hidden="true">⬇</span> View / Download
-              </a>
-            </div>
-          ))}
+                <div>
+                  <div className="text-3xl mb-2" aria-hidden="true">
+                    📋
+                  </div>
+                  <h2 className="text-[20px] text-[#333] font-[700] mb-1">{minutes.title}</h2>
+                  <p className="text-[14px] text-[#666] font-[500]">{minutes.meetingDate}</p>
+                </div>
+                <div className="flex flex-col sm:items-end gap-3">
+                  <a
+                    href={minutesPageHref}
+                    className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-[600] text-[14px] hover:bg-blue-700 transition-colors whitespace-nowrap"
+                    aria-label={`View ${minutes.title} online`}
+                  >
+                    <span aria-hidden="true">📖</span> View Minutes
+                  </a>
+                  <a
+                    href={pdfHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] font-[600] text-blue-600 hover:text-blue-700 hover:underline whitespace-nowrap"
+                    aria-label={`Download ${minutes.title} (PDF)`}
+                  >
+                    Download PDF
+                  </a>
+                </div>
+              </div>
+            )
+          })}
         </div>
 
         {/* Contact Section */}
