@@ -1,4 +1,4 @@
-export interface MeetingMinutes {
+export interface MeetingMinutesEntry {
   title: string
   slug: string
   filename: string
@@ -6,7 +6,7 @@ export interface MeetingMinutes {
   publishedDate: string
 }
 
-export const meetingMinutes: MeetingMinutes[] = [
+export const meetingMinutes: MeetingMinutesEntry[] = [
   {
     title: 'Post Meeting Minutes – March 2026',
     slug: '2026-03',
