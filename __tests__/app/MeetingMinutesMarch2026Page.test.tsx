@@ -40,7 +40,7 @@ describe('MeetingMinutesMarch2026Page', () => {
   it('should have a PDF download link', () => {
     render(<MeetingMinutesMarch2026Page />)
     const downloadLinks = screen.getAllByRole('link', {
-      name: /Download.*March 2026.*Post Meeting Minutes.*PDF/i,
+      name: /Download Post Meeting Minutes.*March 2026.*PDF/i,
     })
     expect(downloadLinks.length).toBeGreaterThan(0)
     expect(downloadLinks[0]).toHaveAttribute(

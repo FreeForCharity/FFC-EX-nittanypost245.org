@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
+import { meetingMinutes } from '@/data/meetingMinutes'
 import { assetPath } from '@/lib/assetPath'
 import Link from 'next/link'
+
+const entry = meetingMinutes.find((m) => m.slug === '2026-03')!
+const pdfHref = assetPath(`/documents/${entry.pdfFilename}`)
+const pdfAriaLabel = `Download ${entry.title} PDF`
 
 export const metadata: Metadata = {
   title: 'Post Meeting Minutes – March 2026',
@@ -50,11 +55,11 @@ export default function MeetingMinutesMarch2026Page() {
             <span aria-hidden="true">📄</span> The official PDF minutes are available for download.
           </p>
           <a
-            href={assetPath('/documents/post-meeting-minutes-202603.pdf')}
+            href={pdfHref}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-[600] text-[14px] hover:bg-blue-700 transition-colors whitespace-nowrap"
-            aria-label="Download March 2026 Post Meeting Minutes PDF"
+            aria-label={pdfAriaLabel}
           >
             <span aria-hidden="true">⬇</span> Download PDF
           </a>
@@ -545,11 +550,11 @@ export default function MeetingMinutesMarch2026Page() {
             Download the official signed minutes for your records.
           </p>
           <a
-            href={assetPath('/documents/post-meeting-minutes-202603.pdf')}
+            href={pdfHref}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-[600] hover:bg-blue-700 transition-colors"
-            aria-label="Download March 2026 Post Meeting Minutes PDF"
+            aria-label={pdfAriaLabel}
           >
             <span aria-hidden="true">⬇</span> Download Official PDF
           </a>

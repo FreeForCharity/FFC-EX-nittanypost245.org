@@ -22,7 +22,7 @@ test.describe('Meeting Minutes Pages', () => {
 
     // Verify the March 2026 entry is present
     await expect(page.locator('text=Post Meeting Minutes – March 2026')).toBeVisible()
-    await expect(page.locator('text=March 2026')).toBeVisible()
+    await expect(page.getByText('March 2026', { exact: true })).toBeVisible()
   })
 
   test('should have a "Read Online" link for March 2026 minutes', async ({ page }) => {
@@ -63,7 +63,7 @@ test.describe('Meeting Minutes Pages', () => {
     await page.goto('/meeting-minutes/2026-03')
 
     const downloadLinks = page.getByRole('link', {
-      name: /Download.*March 2026.*Post Meeting Minutes.*PDF/i,
+      name: /Download Post Meeting Minutes.*March 2026.*PDF/i,
     })
     await expect(downloadLinks.first()).toBeVisible()
 
