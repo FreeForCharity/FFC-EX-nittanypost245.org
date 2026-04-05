@@ -3,7 +3,10 @@ import { meetingMinutes } from '@/data/meetingMinutes'
 import { assetPath } from '@/lib/assetPath'
 import Link from 'next/link'
 
-const entry = meetingMinutes.find((m) => m.slug === '2026-03')!
+const entry = meetingMinutes.find((m) => m.slug === '2026-03')
+if (!entry) {
+  throw new Error('Meeting minutes entry for slug "2026-03" not found in meetingMinutes data.')
+}
 const pdfHref = assetPath(`/documents/${entry.pdfFilename}`)
 const pdfAriaLabel = `Download ${entry.title} PDF`
 
