@@ -1,5 +1,5 @@
 import React from 'react'
-import ZeffyFishChipsButton from '@/components/donate/zeffy-fish-chips-button'
+import ZeffyBbqButton from '@/components/donate/zeffy-bbq-button'
 
 const Events = () => {
   return (
@@ -19,23 +19,18 @@ const Events = () => {
           </p>
         </div>
 
-        {/* Fish & Chips Ordering - Highlighted */}
+        {/* BBQ Ticket Sales - Highlighted */}
         <div className="bg-gradient-to-r from-[#002D62] to-[#BF0D3E] p-8 rounded-lg shadow-lg mb-8">
           <div className="text-center text-white">
-            <h3
-              className="text-[32px] font-[700] mb-4"
-              id="lato-font"
-              aria-label="Lent Friday Fish Fry"
-            >
-              <span aria-hidden="true">🐟</span> Lent Friday Fish Fry{' '}
-              <span aria-hidden="true">🐟</span>
+            <h3 className="text-[32px] font-[700] mb-4" id="lato-font" aria-label="Real Good BBQ">
+              <span aria-hidden="true">🍖</span> Real Good BBQ <span aria-hidden="true">🍖</span>
             </h3>
             <p className="text-[20px] font-[400] mb-6" id="lato-font">
-              Order delicious fish and chips for our Lent Friday fundraiser!
+              Get your tickets for our Real Good BBQ fundraiser!
             </p>
-            <ZeffyFishChipsButton className="inline-block bg-white text-[#002D62] px-8 py-4 rounded-full text-[20px] font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105">
-              Order Fish & Chips Now
-            </ZeffyFishChipsButton>
+            <ZeffyBbqButton className="inline-block bg-white text-[#002D62] px-8 py-4 rounded-full text-[20px] font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105">
+              BBQ Ticket Sales
+            </ZeffyBbqButton>
           </div>
         </div>
 

@@ -63,16 +63,13 @@ describe('Header component', () => {
     expect(buttons.length).toBeGreaterThanOrEqual(2)
   })
 
-  it('should have Fish & Chips ordering link', () => {
+  it('should have BBQ Ticket Sales link', () => {
     render(<Header />)
-    const fishChipsLink = screen.getByRole('link', {
-      name: /Order Fish and Chips for Lent Friday Fish Fry/i,
+    const bbqLink = screen.getByRole('link', {
+      name: /BBQ Ticket Sales/i,
     })
-    expect(fishChipsLink).toBeInTheDocument()
-    expect(fishChipsLink).toHaveAttribute(
-      'href',
-      'https://www.zeffy.com/en-US/ticketing/lent-friday-fish-fry'
-    )
+    expect(bbqLink).toBeInTheDocument()
+    expect(bbqLink).toHaveAttribute('href', 'https://www.zeffy.com/en-US/ticketing/reeeal-good-bbq')
   })
 
   it('should not have accessibility violations', async () => {

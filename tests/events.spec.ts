@@ -69,26 +69,26 @@ test.describe('Events Section', () => {
     await expect(eventsSection).toBeVisible()
   })
 
-  test('should have Fish & Chips ordering CTA with correct Zeffy link', async ({ page }) => {
+  test('should have BBQ Ticket Sales CTA with correct Zeffy link', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/')
 
     const eventsSection = page.locator('#events')
     await expect(eventsSection).toBeVisible()
 
-    // Find the Fish & Chips ordering link
-    const fishChipsLink = eventsSection.getByRole('link', {
-      name: /Order Fish.*Chips/i,
+    // Find the BBQ ticket sales link
+    const bbqLink = eventsSection.getByRole('link', {
+      name: /BBQ Ticket Sales/i,
     })
-    await expect(fishChipsLink).toBeVisible()
+    await expect(bbqLink).toBeVisible()
 
     // Verify it points to the correct Zeffy URL
-    await expect(fishChipsLink).toHaveAttribute(
+    await expect(bbqLink).toHaveAttribute(
       'href',
-      'https://www.zeffy.com/en-US/ticketing/lent-friday-fish-fry'
+      'https://www.zeffy.com/en-US/ticketing/reeeal-good-bbq'
     )
 
     // Verify it opens in a new tab
-    await expect(fishChipsLink).toHaveAttribute('target', '_blank')
+    await expect(bbqLink).toHaveAttribute('target', '_blank')
   })
 })
