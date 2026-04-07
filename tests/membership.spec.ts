@@ -13,7 +13,7 @@ import { test, expect } from '@playwright/test'
 test.describe('Membership Pages', () => {
   test('should display membership landing page', async ({ page }) => {
     // Navigate to membership page
-    await page.goto('/membership')
+    await page.goto('/membership', { waitUntil: 'domcontentloaded' })
 
     // Verify intro text (unique to membership landing page)
     await expect(page.locator('text=American Legion Post 245 welcomes')).toBeVisible()
@@ -29,7 +29,7 @@ test.describe('Membership Pages', () => {
 
   test('should navigate to membership page from header', async ({ page }) => {
     // Start at homepage
-    await page.goto('/')
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
 
     // Click the Membership link in the header
     await page.click('header a[href="/membership"]')
@@ -40,7 +40,7 @@ test.describe('Membership Pages', () => {
   })
 
   test('should load Veteran Class A membership page', async ({ page }) => {
-    await page.goto('/membership/veteran-class-a')
+    await page.goto('/membership/veteran-class-a', { waitUntil: 'domcontentloaded' })
 
     // Verify unique page content using heading selectors to avoid duplicates
     await expect(page.getByRole('heading', { name: 'Eligibility Requirements' })).toBeVisible()
@@ -54,7 +54,7 @@ test.describe('Membership Pages', () => {
   })
 
   test('should load Auxiliary membership page', async ({ page }) => {
-    await page.goto('/membership/auxiliary')
+    await page.goto('/membership/auxiliary', { waitUntil: 'domcontentloaded' })
 
     // Verify unique page content
     await expect(page.locator('text=Eligibility Requirements')).toBeVisible()
@@ -67,7 +67,7 @@ test.describe('Membership Pages', () => {
   })
 
   test('should load S.A.L. Squadron 245 membership page', async ({ page }) => {
-    await page.goto('/membership/squadron-245')
+    await page.goto('/membership/squadron-245', { waitUntil: 'domcontentloaded' })
 
     // Verify unique page content using headings to avoid duplicates
     await expect(page.getByRole('heading', { name: /About Sons of The American/ })).toBeVisible()
@@ -80,7 +80,7 @@ test.describe('Membership Pages', () => {
   })
 
   test('should load Social membership page', async ({ page }) => {
-    await page.goto('/membership/post-245-inc')
+    await page.goto('/membership/post-245-inc', { waitUntil: 'domcontentloaded' })
 
     // Verify unique page content using headings to avoid duplicates
     await expect(page.getByRole('heading', { name: 'About Social Membership' })).toBeVisible()
@@ -93,7 +93,7 @@ test.describe('Membership Pages', () => {
   })
 
   test('should load American Legion Riders page', async ({ page }) => {
-    await page.goto('/membership/riders-chapter-245')
+    await page.goto('/membership/riders-chapter-245', { waitUntil: 'domcontentloaded' })
 
     // Verify unique page content
     await expect(page.locator('text=About American Legion Riders')).toBeVisible()
@@ -107,7 +107,7 @@ test.describe('Membership Pages', () => {
 
   test('should navigate from landing page to subpages', async ({ page }) => {
     // Start at membership landing page
-    await page.goto('/membership')
+    await page.goto('/membership', { waitUntil: 'domcontentloaded' })
 
     // Wait for page to load
     await expect(page.locator('text=Why Join Post 245?')).toBeVisible()
@@ -136,7 +136,7 @@ test.describe('Membership Pages', () => {
     ]
 
     for (const pagePath of pages) {
-      await page.goto(pagePath)
+      await page.goto(pagePath, { waitUntil: 'domcontentloaded' })
 
       // Verify contact link is present
       const contactLink = page.locator('a[href*="contact"]')
@@ -145,7 +145,7 @@ test.describe('Membership Pages', () => {
   })
 
   test('should display metadata correctly', async ({ page }) => {
-    await page.goto('/membership')
+    await page.goto('/membership', { waitUntil: 'domcontentloaded' })
 
     // Verify page title includes membership
     await expect(page).toHaveTitle(/Membership/i)

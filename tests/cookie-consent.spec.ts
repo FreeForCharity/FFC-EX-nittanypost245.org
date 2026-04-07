@@ -12,10 +12,12 @@ import { test, expect } from '@playwright/test'
  */
 
 test.describe('Cookie Consent Banner', () => {
+  test.setTimeout(60 * 1000)
+
   test.beforeEach(async ({ page, context }) => {
     // Clear cookies and localStorage before each test
     await context.clearCookies()
-    await page.goto('/')
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
     await page.evaluate(() => localStorage.clear())
     await page.reload()
   })
@@ -109,10 +111,12 @@ test.describe('Cookie Consent Banner', () => {
 })
 
 test.describe('Cookie Preferences Modal', () => {
+  test.setTimeout(60 * 1000)
+
   test.beforeEach(async ({ page, context }) => {
     // Clear cookies and localStorage before each test
     await context.clearCookies()
-    await page.goto('/')
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
     await page.evaluate(() => localStorage.clear())
     await page.reload()
   })

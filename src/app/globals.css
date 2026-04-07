@@ -19,6 +19,11 @@ body {
   scroll-behavior: smooth !important;
 }
 
+html {
+  /* Prevent hash-link targets from being hidden behind the fixed header */
+  scroll-padding-top: 100px;
+}
+
 @theme inline {
   /* Tailwind design tokens mapped to brand variables */
   --color-primary: var(--ffc-primary);

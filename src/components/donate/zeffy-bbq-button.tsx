@@ -5,6 +5,7 @@ import React from 'react'
 const ZEFFY_BBQ_LINK = 'https://www.zeffy.com/en-US/ticketing/reeeal-good-bbq'
 
 type ZeffyBbqButtonProps = {
+  href?: string
   className?: string
   children?: React.ReactNode
   ariaLabel?: string
@@ -12,6 +13,7 @@ type ZeffyBbqButtonProps = {
 }
 
 export default function ZeffyBbqButton({
+  href,
   className,
   children = 'BBQ Ticket Sales',
   ariaLabel,
@@ -19,7 +21,7 @@ export default function ZeffyBbqButton({
 }: ZeffyBbqButtonProps) {
   return (
     <a
-      href={ZEFFY_BBQ_LINK}
+      href={href ?? ZEFFY_BBQ_LINK}
       target="_blank"
       rel="noopener noreferrer"
       {...(ariaLabel && { 'aria-label': ariaLabel })}

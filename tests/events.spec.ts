@@ -12,7 +12,7 @@ import { test, expect } from '@playwright/test'
 test.describe('Events Section', () => {
   test('should render the Events section on homepage', async ({ page }) => {
     // Navigate to the homepage
-    await page.goto('/')
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
 
     // Verify Events section exists with correct ID
     const eventsSection = page.locator('#events')
@@ -42,7 +42,7 @@ test.describe('Events Section', () => {
 
   test('should have proper section structure', async ({ page }) => {
     // Navigate to the homepage
-    await page.goto('/')
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
 
     const eventsSection = page.locator('#events')
 
@@ -59,7 +59,7 @@ test.describe('Events Section', () => {
     await page.setViewportSize({ width: 375, height: 667 })
 
     // Navigate to the homepage
-    await page.goto('/')
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
 
     // Scroll to Events section
     await page.locator('#events').scrollIntoViewIfNeeded()
@@ -69,26 +69,47 @@ test.describe('Events Section', () => {
     await expect(eventsSection).toBeVisible()
   })
 
-  test('should have BBQ Ticket Sales CTA with correct Zeffy link', async ({ page }) => {
+  test('should have a primary fundraiser CTA with the correct link', async ({ page }) => {
     // Navigate to the homepage
-    await page.goto('/')
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
 
     const eventsSection = page.locator('#events')
     await expect(eventsSection).toBeVisible()
 
-    // Find the BBQ ticket sales link
-    const bbqLink = eventsSection.getByRole('link', {
-      name: /BBQ Ticket Sales/i,
+    const bbqCtaLink = eventsSection.getByRole('link', { name: /BBQ Ticket Sales/i })
+    const fishFryCtaLink = eventsSection.getByRole('link', { name: /Fish Fry details/i })
+
+    await expect
+      .poll(async () => (await bbqCtaLink.count()) + (await fishFryCtaLink.count()))
+      .toBeGreaterThan(0)
+
+    const bbqCount = await bbqCtaLink.count()
+    const fishCount = await fishFryCtaLink.count()
+    expect(bbqCount + fishCount).toBe(1)
+
+    if (bbqCount === 1) {
+      await expect(bbqCtaLink).toBeVisible()
+      await expect(bbqCtaLink).toHaveAttribute(
+        'href',
+        'https://www.zeffy.com/en-US/ticketing/reeeal-good-bbq'
+      )
+      await expect(bbqCtaLink).toHaveAttribute('target', '_blank')
+    } else {
+      await expect(fishFryCtaLink).toBeVisible()
+      await expect(fishFryCtaLink).toHaveAttribute('href', '/fundraisers#fish-fry')
+    }
+  })
+
+  test('should link to the Fundraisers page for seasonal history', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+
+    const eventsSection = page.locator('#events')
+    await expect(eventsSection).toBeVisible()
+
+    const fundraisersLink = eventsSection.getByRole('link', {
+      name: /See all fundraisers/i,
     })
-    await expect(bbqLink).toBeVisible()
-
-    // Verify it points to the correct Zeffy URL
-    await expect(bbqLink).toHaveAttribute(
-      'href',
-      'https://www.zeffy.com/en-US/ticketing/reeeal-good-bbq'
-    )
-
-    // Verify it opens in a new tab
-    await expect(bbqLink).toHaveAttribute('target', '_blank')
+    await expect(fundraisersLink).toBeVisible()
+    await expect(fundraisersLink).toHaveAttribute('href', '/fundraisers')
   })
 })

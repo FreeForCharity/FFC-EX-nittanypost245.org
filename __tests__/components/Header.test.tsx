@@ -63,13 +63,23 @@ describe('Header component', () => {
     expect(buttons.length).toBeGreaterThanOrEqual(2)
   })
 
-  it('should have BBQ Ticket Sales link', () => {
+  it('should have a primary fundraiser CTA link', () => {
     render(<Header />)
-    const bbqLink = screen.getByRole('link', {
-      name: /BBQ Ticket Sales/i,
-    })
-    expect(bbqLink).toBeInTheDocument()
-    expect(bbqLink).toHaveAttribute('href', 'https://www.zeffy.com/en-US/ticketing/reeeal-good-bbq')
+    const primaryFundraiser =
+      process.env.NEXT_PUBLIC_PRIMARY_FUNDRAISER_CTA === 'fish-fry' ? 'fish-fry' : 'bbq'
+
+    if (primaryFundraiser === 'bbq') {
+      const ctaLink = screen.getByRole('link', { name: /BBQ Ticket Sales/i })
+      expect(ctaLink).toBeInTheDocument()
+      expect(ctaLink).toHaveAttribute(
+        'href',
+        'https://www.zeffy.com/en-US/ticketing/reeeal-good-bbq'
+      )
+    } else {
+      const ctaLink = screen.getByRole('link', { name: /Fish Fry details/i })
+      expect(ctaLink).toBeInTheDocument()
+      expect(ctaLink).toHaveAttribute('href', '/fundraisers#fish-fry')
+    }
   })
 
   it('should not have accessibility violations', async () => {
