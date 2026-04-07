@@ -11,7 +11,7 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Newsletters Page', () => {
   test('should display the newsletters landing page', async ({ page }) => {
-    await page.goto('/newsletters')
+    await page.goto('/newsletters', { waitUntil: 'domcontentloaded' })
 
     // Verify heading
     await expect(page.getByRole('heading', { name: 'Newsletters', level: 1 })).toBeVisible()
@@ -25,7 +25,7 @@ test.describe('Newsletters Page', () => {
   })
 
   test('should have a working download link for the Mar–June 2026 newsletter', async ({ page }) => {
-    await page.goto('/newsletters')
+    await page.goto('/newsletters', { waitUntil: 'domcontentloaded' })
 
     const downloadLink = page.getByRole('link', {
       name: /Download or view.*March to June 2026.*PDF/i,
@@ -39,7 +39,7 @@ test.describe('Newsletters Page', () => {
   })
 
   test('should navigate to newsletters page from header', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
 
     await page.click('header a[href="/newsletters"]')
 
@@ -48,7 +48,7 @@ test.describe('Newsletters Page', () => {
   })
 
   test('should have a contact link on the newsletters page', async ({ page }) => {
-    await page.goto('/newsletters')
+    await page.goto('/newsletters', { waitUntil: 'domcontentloaded' })
 
     const contactLink = page.getByRole('link', { name: /Contact Us/i })
     await expect(contactLink).toBeVisible()
@@ -56,7 +56,7 @@ test.describe('Newsletters Page', () => {
   })
 
   test('should display correct page metadata', async ({ page }) => {
-    await page.goto('/newsletters')
+    await page.goto('/newsletters', { waitUntil: 'domcontentloaded' })
 
     await expect(page).toHaveTitle(/Newsletters/i)
   })

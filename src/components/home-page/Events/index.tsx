@@ -1,7 +1,11 @@
 import React from 'react'
-import ZeffyFishChipsButton from '@/components/donate/zeffy-fish-chips-button'
+import Link from 'next/link'
+import ZeffyBbqButton from '@/components/donate/zeffy-bbq-button'
+import { getPrimaryFundraiserCta } from '@/data/fundraisers'
 
 const Events = () => {
+  const primaryFundraiser = getPrimaryFundraiserCta()
+
   return (
     <div id="events" className="py-[52px]">
       <div className="w-[90%] mx-auto max-w-[1280px]">
@@ -19,23 +23,40 @@ const Events = () => {
           </p>
         </div>
 
-        {/* Fish & Chips Ordering - Highlighted */}
+        {/* Primary fundraiser CTA - Highlighted */}
         <div className="bg-gradient-to-r from-[#002D62] to-[#BF0D3E] p-8 rounded-lg shadow-lg mb-8">
           <div className="text-center text-white">
-            <h3
-              className="text-[32px] font-[700] mb-4"
-              id="lato-font"
-              aria-label="Lent Friday Fish Fry"
-            >
-              <span aria-hidden="true">🐟</span> Lent Friday Fish Fry{' '}
-              <span aria-hidden="true">🐟</span>
+            <h3 className="text-[32px] font-[700] mb-4" id="lato-font">
+              <span aria-hidden="true">{primaryFundraiser.emoji}</span> {primaryFundraiser.heading}{' '}
+              <span aria-hidden="true">{primaryFundraiser.emoji}</span>
             </h3>
             <p className="text-[20px] font-[400] mb-6" id="lato-font">
-              Order delicious fish and chips for our Lent Friday fundraiser!
+              {primaryFundraiser.description}
             </p>
-            <ZeffyFishChipsButton className="inline-block bg-white text-[#002D62] px-8 py-4 rounded-full text-[20px] font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105">
-              Order Fish & Chips Now
-            </ZeffyFishChipsButton>
+
+            {primaryFundraiser.external ? (
+              <ZeffyBbqButton
+                href={primaryFundraiser.href}
+                ariaLabel={primaryFundraiser.ctaAriaLabel}
+                className="inline-block bg-white text-[#002D62] px-8 py-4 rounded-full text-[20px] font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105"
+              >
+                {primaryFundraiser.ctaLabel}
+              </ZeffyBbqButton>
+            ) : (
+              <Link
+                href={primaryFundraiser.href}
+                aria-label={primaryFundraiser.ctaAriaLabel}
+                className="inline-block bg-white text-[#002D62] px-8 py-4 rounded-full text-[20px] font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105"
+              >
+                {primaryFundraiser.ctaLabel}
+              </Link>
+            )}
+
+            <div className="mt-4" id="lato-font">
+              <Link href="/fundraisers" className="text-white hover:underline font-[600]">
+                See all fundraisers →
+              </Link>
+            </div>
           </div>
         </div>
 

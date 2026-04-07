@@ -8,7 +8,8 @@ import { RxCross2 } from 'react-icons/rx'
 import { motion, AnimatePresence } from 'framer-motion'
 import { assetPath } from '@/lib/assetPath'
 import ZeffyDonateButton from '@/components/donate/zeffy-donate-button'
-import ZeffyFishChipsButton from '@/components/donate/zeffy-fish-chips-button'
+import ZeffyBbqButton from '@/components/donate/zeffy-bbq-button'
+import { getPrimaryFundraiserCta } from '@/data/fundraisers'
 
 interface MenuItem {
   label: string
@@ -19,6 +20,7 @@ const SCROLL_OFFSET = 100
 
 const Header: React.FC = () => {
   const pathname = usePathname()
+  const primaryFundraiser = getPrimaryFundraiserCta()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState<string>('')
@@ -29,6 +31,7 @@ const Header: React.FC = () => {
       { label: 'About', path: '/#mission' },
       { label: 'Programs', path: '/#programs' },
       { label: 'Events', path: '/#events' },
+      { label: 'Fundraisers', path: '/fundraisers' },
       { label: 'Membership', path: '/membership' },
       { label: 'Newsletters', path: '/newsletters' },
       { label: 'Meeting Minutes', path: '/meeting-minutes' },
@@ -39,7 +42,11 @@ const Header: React.FC = () => {
 
   const sections = useMemo(
     () =>
-      menuItems.map((item) => item.path.replace('/#', '')).filter((section) => section !== 'hero'),
+      menuItems
+        .map((item) => item.path)
+        .filter((path) => path.startsWith('/#'))
+        .map((path) => path.replace('/#', ''))
+        .filter((section) => section !== 'hero'),
     [menuItems]
   )
 
@@ -142,12 +149,25 @@ const Header: React.FC = () => {
 
               {/* Action Buttons */}
               <div className="hidden lg:flex items-center gap-2">
-                <ZeffyFishChipsButton
-                  className="px-3 py-2 text-[14px] font-navbar font-[600] text-white bg-[#BF0D3E] hover:bg-[#FFD700] hover:text-[#002D62] rounded transition-all"
-                  ariaLabel="Order Fish and Chips for Lent Friday Fish Fry"
-                >
-                  <span aria-hidden="true">🐟</span> Order Fish & Chips
-                </ZeffyFishChipsButton>
+                {primaryFundraiser.external ? (
+                  <ZeffyBbqButton
+                    href={primaryFundraiser.href}
+                    className="px-3 py-2 text-[14px] font-navbar font-[600] text-white bg-[#BF0D3E] hover:bg-[#FFD700] hover:text-[#002D62] rounded transition-all"
+                    ariaLabel={primaryFundraiser.ctaAriaLabel}
+                  >
+                    <span aria-hidden="true">{primaryFundraiser.emoji}</span>{' '}
+                    {primaryFundraiser.ctaLabel}
+                  </ZeffyBbqButton>
+                ) : (
+                  <Link
+                    href={primaryFundraiser.href}
+                    className="px-3 py-2 text-[14px] font-navbar font-[600] text-white bg-[#BF0D3E] hover:bg-[#FFD700] hover:text-[#002D62] rounded transition-all"
+                    aria-label={primaryFundraiser.ctaAriaLabel}
+                  >
+                    <span aria-hidden="true">{primaryFundraiser.emoji}</span>{' '}
+                    {primaryFundraiser.ctaLabel}
+                  </Link>
+                )}
                 <ZeffyDonateButton className="px-3 py-2 text-[14px] font-navbar font-[600] text-gray-600 hover:text-blue-600 transition-colors" />
               </div>
 
@@ -202,13 +222,27 @@ const Header: React.FC = () => {
               </ul>
               {/* Mobile Action Buttons */}
               <div className="mt-4 space-y-2">
-                <ZeffyFishChipsButton
-                  className="block w-full text-center px-4 py-3 bg-[#BF0D3E] text-white rounded-lg text-sm font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all"
-                  ariaLabel="Order Fish and Chips for Lent Friday Fish Fry"
-                  onClick={handleLinkClick}
-                >
-                  <span aria-hidden="true">🐟</span> Order Fish & Chips
-                </ZeffyFishChipsButton>
+                {primaryFundraiser.external ? (
+                  <ZeffyBbqButton
+                    href={primaryFundraiser.href}
+                    className="block w-full text-center px-4 py-3 bg-[#BF0D3E] text-white rounded-lg text-sm font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all"
+                    ariaLabel={primaryFundraiser.ctaAriaLabel}
+                    onClick={handleLinkClick}
+                  >
+                    <span aria-hidden="true">{primaryFundraiser.emoji}</span>{' '}
+                    {primaryFundraiser.ctaLabel}
+                  </ZeffyBbqButton>
+                ) : (
+                  <Link
+                    href={primaryFundraiser.href}
+                    onClick={handleLinkClick}
+                    aria-label={primaryFundraiser.ctaAriaLabel}
+                    className="block w-full text-center px-4 py-3 bg-[#BF0D3E] text-white rounded-lg text-sm font-[700] hover:bg-[#FFD700] hover:text-[#002D62] transition-all"
+                  >
+                    <span aria-hidden="true">{primaryFundraiser.emoji}</span>{' '}
+                    {primaryFundraiser.ctaLabel}
+                  </Link>
+                )}
                 <ZeffyDonateButton
                   className="block w-full text-center px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-[600] hover:bg-blue-700 transition-all"
                   onClick={handleLinkClick}

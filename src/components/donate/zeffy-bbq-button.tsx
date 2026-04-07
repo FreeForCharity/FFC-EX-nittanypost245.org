@@ -2,24 +2,26 @@
 
 import React from 'react'
 
-const ZEFFY_FISH_CHIPS_LINK = 'https://www.zeffy.com/en-US/ticketing/lent-friday-fish-fry'
+const ZEFFY_BBQ_LINK = 'https://www.zeffy.com/en-US/ticketing/reeeal-good-bbq'
 
-type ZeffyFishChipsButtonProps = {
+type ZeffyBbqButtonProps = {
+  href?: string
   className?: string
   children?: React.ReactNode
   ariaLabel?: string
   onClick?: () => void
 }
 
-export default function ZeffyFishChipsButton({
+export default function ZeffyBbqButton({
+  href,
   className,
-  children = 'Order Fish & Chips',
+  children = 'BBQ Ticket Sales',
   ariaLabel,
   onClick,
-}: ZeffyFishChipsButtonProps) {
+}: ZeffyBbqButtonProps) {
   return (
     <a
-      href={ZEFFY_FISH_CHIPS_LINK}
+      href={href ?? ZEFFY_BBQ_LINK}
       target="_blank"
       rel="noopener noreferrer"
       {...(ariaLabel && { 'aria-label': ariaLabel })}

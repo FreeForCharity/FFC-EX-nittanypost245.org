@@ -4,13 +4,15 @@ import React from 'react'
 import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import ZeffyDonateButton from '@/components/donate/zeffy-donate-button'
-import ZeffyFishChipsButton from '@/components/donate/zeffy-fish-chips-button'
+import ZeffyBbqButton from '@/components/donate/zeffy-bbq-button'
+import { getPrimaryFundraiserCta } from '@/data/fundraisers'
 
 import { FaFacebookF, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 
 const Footer: React.FC = () => {
   const currentYear = React.useMemo(() => new Date().getFullYear(), [])
+  const primaryFundraiser = React.useMemo(() => getPrimaryFundraiserCta(), [])
   const socialLinks = [
     {
       icon: FaFacebookF,
@@ -72,6 +74,7 @@ const Footer: React.FC = () => {
               { name: 'About', href: '/#mission' },
               { name: 'Programs', href: '/#programs' },
               { name: 'Events', href: '/#events' },
+              { name: 'Fundraisers', href: '/fundraisers' },
               { name: 'Membership', href: '/#membership' },
               { name: 'Contact', href: '/#contact' },
             ].map((link) => (
@@ -88,12 +91,25 @@ const Footer: React.FC = () => {
           </ul>
 
           <div className="space-y-2">
-            <ZeffyFishChipsButton
-              className="inline-flex items-center justify-center text-[16px] font-[600] hover:text-[#FFD700] hover:tracking-widest transition-all"
-              ariaLabel="Order Fish and Chips for Lent Friday Fish Fry"
-            >
-              <span aria-hidden="true">🐟</span> Order Fish & Chips
-            </ZeffyFishChipsButton>
+            {primaryFundraiser.external ? (
+              <ZeffyBbqButton
+                href={primaryFundraiser.href}
+                className="inline-flex items-center justify-center text-[16px] font-[600] hover:text-[#FFD700] hover:tracking-widest transition-all"
+                ariaLabel={primaryFundraiser.ctaAriaLabel}
+              >
+                <span aria-hidden="true">{primaryFundraiser.emoji}</span>{' '}
+                {primaryFundraiser.ctaLabel}
+              </ZeffyBbqButton>
+            ) : (
+              <Link
+                href={primaryFundraiser.href}
+                aria-label={primaryFundraiser.ctaAriaLabel}
+                className="inline-flex items-center justify-center text-[16px] font-[600] hover:text-[#FFD700] hover:tracking-widest transition-all"
+              >
+                <span aria-hidden="true">{primaryFundraiser.emoji}</span>{' '}
+                {primaryFundraiser.ctaLabel}
+              </Link>
+            )}
           </div>
 
           <ZeffyDonateButton className="inline-flex items-center justify-center text-[16px] font-[500] hover:text-[#F58C23] hover:tracking-widest transition-all" />
@@ -186,12 +202,12 @@ const Footer: React.FC = () => {
                     aria-label={label}
                     className={`p-2 rounded-full transition-colors ${
                       active
-                        ? 'bg-[#BF0D3E] hover:bg-[#FFD700] hover:text-[#002D62]'
-                        : 'bg-gray-600 opacity-50 cursor-not-allowed'
+                        ? 'text-white bg-[#BF0D3E] hover:bg-[#FFD700] hover:text-[#002D62]'
+                        : 'text-white bg-gray-600 opacity-50 cursor-not-allowed'
                     }`}
                     onClick={!active ? (e) => e.preventDefault() : undefined}
                   >
-                    <Icon className="w-6 h-6 text-white" />
+                    <Icon className="w-6 h-6" />
                   </a>
                 ))}
               </div>
