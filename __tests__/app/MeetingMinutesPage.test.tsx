@@ -17,6 +17,29 @@ describe('MeetingMinutesPage', () => {
     expect(screen.getByText(/Official minutes from American Legion Post 245/i)).toBeInTheDocument()
   })
 
+  it('should display the May 2026 meeting minutes entry', () => {
+    render(<MeetingMinutesPage />)
+    expect(
+      screen.getByRole('heading', { name: /Post Meeting Minutes.*May 2026/i })
+    ).toBeInTheDocument()
+  })
+
+  it('should have a "Read Online" link for the May 2026 minutes', () => {
+    render(<MeetingMinutesPage />)
+    const link = screen.getByRole('link', { name: /Read.*May 2026.*online/i })
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('href', '/meeting-minutes/2026-05')
+  })
+
+  it('should have a PDF download link for the May 2026 minutes', () => {
+    render(<MeetingMinutesPage />)
+    const link = screen.getByRole('link', { name: /Download.*May 2026.*PDF/i })
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('href', expect.stringContaining('post-meeting-minutes-202605.pdf'))
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+  })
+
   it('should display the April 2026 meeting minutes entry', () => {
     render(<MeetingMinutesPage />)
     expect(
