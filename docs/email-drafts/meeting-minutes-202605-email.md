@@ -24,7 +24,7 @@ Here is a quick recap of the May 21, 2026 stated meeting. Full minutes are avail
 
 - 💰 **Finance:** Post balance is **$15,762.57** as of May 21 (after $22,523.05 in checks and $10,068.00 in deposits). Savings account holds $10,112.17.
 - 📊 **Membership:** We are at **655 members — only 24 short of our 100% goal.** Class A: 655 • Social: 145.
-- 🗳️ **2027 Nominations closed:** Commander D. J. Watkins, 1st Vice Dennis Clark, 2nd Vice Rich Jackson, Adjutant Mitch DeLong, Treasurer Chris Solo. **Election is June 18, 2026 at 7:00 PM.** Don Hartzell and Tom Hammond will serve as At-Large PEC members (2027–2029).
+- 🗳️ **2027 Nominations closed:** Commander D. J. Watkins, 1st Vice Dennis Clark, 2nd Vice Rich Jackson, Adjutant Mitch DeLong, Treasurer Chris Solo. **Election is June 18, 2026 at 7:00 PM.** Don Hartzell and Tom Hammond will be elected to serve as At-Large PEC members (2027–2029).
 - 🅿️ **Parking lot resurfacing approved:** $5,451.05 (West End Sealing) — fully covered by donations from Chuck Brickell, Lynn Corl, Lewis Watt, and Don Hartzell.
 - 🪑 **New bar stools & table tops approved** (not to exceed $4,000) — covered by a $5,000 donation from Don Hartzell.
 - 👤 **3 New Members accepted** (Jamie L. Eberle, Matthew J. Heckman, James J. Dulis) — passed 13-0.
