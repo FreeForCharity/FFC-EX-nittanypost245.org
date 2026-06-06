@@ -74,7 +74,7 @@ const Events = () => {
                 the month
               </p>
               <p className="text-[16px] font-[400]" id="lato-font">
-                <strong>American Legion Auxiliary Meeting:</strong> 1800 on the 4th Tuesday of the
+                <strong>American Legion Auxiliary Meeting:</strong> 1900 on the 4th Tuesday of the
                 month
               </p>
               <p className="text-[16px] font-[400]" id="lato-font">
