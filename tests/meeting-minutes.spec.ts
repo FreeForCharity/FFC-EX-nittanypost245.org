@@ -20,6 +20,10 @@ test.describe('Meeting Minutes Pages', () => {
     // Verify intro text
     await expect(page.locator('text=Official minutes from American Legion Post 245')).toBeVisible()
 
+    // Verify the June 2026 entry is present
+    await expect(page.locator('text=Post Meeting Minutes – June 2026')).toBeVisible()
+    await expect(page.getByText('June 2026', { exact: true })).toBeVisible()
+
     // Verify the May 2026 entry is present
     await expect(page.locator('text=Post Meeting Minutes – May 2026')).toBeVisible()
     await expect(page.getByText('May 2026', { exact: true })).toBeVisible()
@@ -233,5 +237,58 @@ test.describe('Meeting Minutes Pages', () => {
   test('should display correct page title for the May 2026 detail page', async ({ page }) => {
     await page.goto('/meeting-minutes/2026-05')
     await expect(page).toHaveTitle(/May 2026/i)
+  })
+
+  test('should have a "Read Online" link for June 2026 minutes', async ({ page }) => {
+    await page.goto('/meeting-minutes')
+
+    const readLink = page.getByRole('link', { name: /Read.*June 2026.*online/i })
+    await expect(readLink).toBeVisible()
+    await expect(readLink).toHaveAttribute('href', '/meeting-minutes/2026-06')
+  })
+
+  test('should have a PDF download link for June 2026 on the index page', async ({ page }) => {
+    await page.goto('/meeting-minutes')
+
+    const downloadLink = page.getByRole('link', { name: /Download.*June 2026.*PDF/i })
+    await expect(downloadLink).toBeVisible()
+
+    const href = await downloadLink.getAttribute('href')
+    expect(href).toContain('post-meeting-minutes-202606.pdf')
+    expect(await downloadLink.getAttribute('target')).toBe('_blank')
+    expect(await downloadLink.getAttribute('rel')).toContain('noopener')
+  })
+
+  test('should display the June 2026 meeting minutes detail page', async ({ page }) => {
+    await page.goto('/meeting-minutes/2026-06')
+
+    // Verify heading
+    await expect(
+      page.getByRole('heading', { name: /Post Meeting Minutes.*June 2026/i, level: 1 })
+    ).toBeVisible()
+
+    // Verify key sections
+    await expect(page.getByRole('heading', { name: 'Finance Report' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Membership Report' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /New Members/i })).toBeVisible()
+  })
+
+  test('should have a PDF download link on the June 2026 detail page', async ({ page }) => {
+    await page.goto('/meeting-minutes/2026-06')
+
+    const downloadLinks = page.getByRole('link', {
+      name: /Download Post Meeting Minutes.*June 2026.*PDF/i,
+    })
+    await expect(downloadLinks.first()).toBeVisible()
+
+    const href = await downloadLinks.first().getAttribute('href')
+    expect(href).toContain('post-meeting-minutes-202606.pdf')
+    expect(await downloadLinks.first().getAttribute('target')).toBe('_blank')
+    expect(await downloadLinks.first().getAttribute('rel')).toContain('noopener')
+  })
+
+  test('should display correct page title for the June 2026 detail page', async ({ page }) => {
+    await page.goto('/meeting-minutes/2026-06')
+    await expect(page).toHaveTitle(/June 2026/i)
   })
 })

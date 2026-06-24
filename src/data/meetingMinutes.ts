@@ -9,6 +9,14 @@ export interface MeetingMinutes {
 
 export const meetingMinutes: MeetingMinutes[] = [
   {
+    title: 'Post Meeting Minutes – June 2026',
+    slug: '2026-06',
+    date: 'June 18, 2026',
+    period: 'June 2026',
+    pdfFilename: 'post-meeting-minutes-202606.pdf',
+    publishedDate: '2026-06-18',
+  },
+  {
     title: 'Post Meeting Minutes – May 2026',
     slug: '2026-05',
     date: 'May 21, 2026',
