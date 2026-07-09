@@ -19,8 +19,14 @@ test.describe('Newsletters Page', () => {
     // Verify intro text
     await expect(page.locator('text=Stay up to date with news')).toBeVisible()
 
-    // Verify the Mar–June 2026 newsletter entry is present
-    await expect(page.locator('text=Post 245 Newsletter')).toBeVisible()
+    // Verify newsletter entries are present (newest first)
+    await expect(
+      page.getByRole('heading', { name: 'Post 245 Newsletter – July to October 2026' })
+    ).toBeVisible()
+    await expect(page.locator('text=July – October 2026')).toBeVisible()
+    await expect(
+      page.getByRole('heading', { name: 'Post 245 Newsletter – March to June 2026' })
+    ).toBeVisible()
     await expect(page.locator('text=March – June 2026')).toBeVisible()
   })
 
