@@ -221,10 +221,30 @@ const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div
-        className="mt-12 py-6 px-4 border-t border-gray-800 text-center text-[18px] font-[500] w-full"
+        className="mt-12 py-6 px-4 border-t border-gray-800 text-center text-[18px] font-[500] w-full space-y-2"
         id="aria-font"
       >
         <p>© {currentYear} Nittany American Legion Post 245 | For God and Country</p>
+        <p className="text-[16px]">
+          Supported by{' '}
+          <a
+            href="https://freeforcharity.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-[#FFD700] transition-colors"
+          >
+            Free For Charity
+          </a>{' '}
+          |{' '}
+          <a
+            href="https://freeforcharity.org/hub/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-[#FFD700] transition-colors"
+          >
+            Supported Charity Login
+          </a>
+        </p>
       </div>
     </footer>
   )

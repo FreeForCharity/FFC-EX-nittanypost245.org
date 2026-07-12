@@ -73,6 +73,15 @@ describe('Footer component', () => {
     }
   })
 
+  it('should have the Free For Charity attribution and hub login link', () => {
+    render(<Footer />)
+    expect(screen.getByRole('contentinfo')).toHaveTextContent(/Supported by/i)
+    const ffcLink = screen.getByRole('link', { name: 'Free For Charity' })
+    expect(ffcLink).toHaveAttribute('href', 'https://freeforcharity.org')
+    const hubLink = screen.getByRole('link', { name: 'Supported Charity Login' })
+    expect(hubLink).toHaveAttribute('href', 'https://freeforcharity.org/hub/')
+  })
+
   it('should not have accessibility violations', async () => {
     const { container } = render(<Footer />)
     const results = await axe(container)
