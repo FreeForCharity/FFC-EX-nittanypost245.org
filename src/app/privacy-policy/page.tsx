@@ -471,7 +471,7 @@ export default function PrivacyPolicy() {
             electronic storage is 100% secure.
           </p>
 
-          {/* Section 9 */}
+          {/* Section 11 */}
           <ol className="list-decimal list-inside pb-[1em]" start={11}>
             <li>
               <h2 className="text-[26px] leading-[26px] font-[700] text-[#333] mb-[10px]">
@@ -486,7 +486,7 @@ export default function PrivacyPolicy() {
             Policy of every site you visit.
           </p>
 
-          {/* Section 10 */}
+          {/* Section 12 */}
           <ol className="list-decimal list-inside pb-[1em]" start={12}>
             <li>
               <h2 className="text-[26px] leading-[26px] font-[700] text-[#333] mb-[10px]">
@@ -509,7 +509,7 @@ export default function PrivacyPolicy() {
             </li>
           </ul>
 
-          {/* Section 11 */}
+          {/* Section 13 */}
           <ol className="list-decimal list-inside pb-[1em]" start={13}>
             <li>
               <h2 className="text-[26px] leading-[26px] font-[700] text-[#333] mb-[10px]">
@@ -533,7 +533,7 @@ export default function PrivacyPolicy() {
             </li>
           </ul>
 
-          {/* Section 12 */}
+          {/* Section 14 */}
           <ol className="list-decimal list-inside pb-[1em]" start={14}>
             <li>
               <h2 className="text-[26px] leading-[26px] font-[700] text-[#333] mb-[10px]">
@@ -556,7 +556,7 @@ export default function PrivacyPolicy() {
             </li>
           </ul>
 
-          {/* Section 13 */}
+          {/* Section 15 */}
           <ol className="list-decimal list-inside pb-[1em]" start={15}>
             <li>
               <h2 className="text-[26px] leading-[26px] font-[700] text-[#333] mb-[10px]">
@@ -577,7 +577,7 @@ export default function PrivacyPolicy() {
             </li>
           </ul>
 
-          {/* Section 14 */}
+          {/* Section 16 */}
           <ol className="list-decimal list-inside pb-[1em]" start={16}>
             <li>
               <h2 className="text-[26px] leading-[26px] font-[700] text-[#333] mb-[10px]">
