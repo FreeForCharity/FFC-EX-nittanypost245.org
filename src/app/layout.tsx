@@ -14,6 +14,7 @@ import {
   montserrat,
   cinzel,
 } from '@/lib/fonts'
+import { CONSENT_MODE_BOOTSTRAP } from '@/lib/consent-mode'
 
 // Get basePath for GitHub Pages deployment
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
@@ -108,6 +109,14 @@ export default function RootLayout({
           src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"
         ></script>
 
+        {/* Google Consent Mode v2 defaults — MUST run before any Google tag
+            (i.e. before the GoogleTagManager component below) so the global
+            consent defaults are already on the dataLayer when GTM/GA4
+            initialise. Denied worldwide: one unscoped default withholds
+            analytics and ad storage from every visitor until they opt in, so
+            there is no region left for Google to resolve from the visitor's IP
+            address. See src/lib/consent-mode.ts. */}
+        <script dangerouslySetInnerHTML={{ __html: CONSENT_MODE_BOOTSTRAP }} />
         <GoogleTagManager />
       </head>
       <body
